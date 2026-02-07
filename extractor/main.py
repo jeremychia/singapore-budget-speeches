@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 # Create output directory in project root (one level up from extractor/)
 project_root = Path(__file__).parent.parent
-output_dir = project_root / "output"
+output_dir = project_root / "output_markdown"
 output_dir.mkdir(exist_ok=True)
 
 # Iterate through all years
