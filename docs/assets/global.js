@@ -8,6 +8,7 @@ let overviewData = null;
 let timeSeriesData = null;
 let countryDetailsData = null;
 let mapData = null;
+let decadeShardCache = new Map(); // Cache for decade shards
 
 // Region colors for consistent styling
 const regionColors = {
@@ -414,18 +415,40 @@ function renderCountryQuotes(country) {
     return "<p>No quotes available.</p>";
   }
 
+  let quoteIndex = 0;
   return yearGroups
     .map(([year, quotes]) => {
       const quotesHtml = quotes
         .slice(0, 3) // Show max 3 quotes per year
         .map((q) => {
+          const currentIndex = quoteIndex++;
           const highlightedText = highlightTerms(q.text, q.terms);
+          const quoteId = `quote-${country.name.replace(
+            /\s+/g,
+            "-",
+          )}-${currentIndex}`;
           return `
-          <div class="quote-item">
+          <div class="quote-item" data-year="${year}" data-text="${encodeURIComponent(
+            q.text,
+          )}">
             <p class="quote-text">${highlightedText}</p>
-            ${
-              q.section ? `<span class="quote-section">${q.section}</span>` : ""
-            }
+            <div class="quote-actions">
+              ${
+                q.section
+                  ? `<span class="quote-section">${q.section}</span>`
+                  : ""
+              }
+              <button class="context-toggle" onclick="toggleQuoteContext('${quoteId}', '${
+                country.name
+              }', ${year}, '${encodeURIComponent(
+                q.text,
+              )}')" title="Show surrounding context">
+                ▼ Context
+              </button>
+            </div>
+            <div class="quote-context" id="${quoteId}" style="display: none;">
+              <div class="context-loading">Loading context...</div>
+            </div>
           </div>
         `;
         })
@@ -482,5 +505,92 @@ function toggleCountryExpansion(countryName) {
   }
 }
 
-// Expose toggle function globally
+// Toggle quote context expansion
+async function toggleQuoteContext(quoteId, countryName, year, encodedText) {
+  const contextDiv = document.getElementById(quoteId);
+  const button =
+    contextDiv.previousElementSibling.querySelector(".context-toggle");
+  const text = decodeURIComponent(encodedText);
+
+  if (contextDiv.style.display === "none") {
+    contextDiv.style.display = "block";
+    button.textContent = "▲ Hide";
+    button.classList.add("active");
+
+    // Load context if not already loaded
+    if (contextDiv.querySelector(".context-loading")) {
+      await loadQuoteContext(quoteId, year, text);
+    }
+  } else {
+    contextDiv.style.display = "none";
+    button.textContent = "▼ Context";
+    button.classList.remove("active");
+  }
+}
+
+// Load surrounding context for a quote
+async function loadQuoteContext(quoteId, year, text) {
+  const contextDiv = document.getElementById(quoteId);
+
+  // Determine decade from year
+  const decade = `${Math.floor(year / 10) * 10}s`;
+  const shardPath = `data/search-index/decades/${decade}.json`;
+
+  // Load decade shard if not cached
+  if (!decadeShardCache.has(decade)) {
+    try {
+      const response = await fetch(shardPath);
+      if (!response.ok) throw new Error("Failed to fetch");
+      const data = await response.json();
+      decadeShardCache.set(decade, data);
+    } catch (error) {
+      console.error("Failed to load decade shard:", error);
+      contextDiv.innerHTML = "<em>Context not available</em>";
+      return;
+    }
+  }
+
+  const shard = decadeShardCache.get(decade);
+  if (!shard || !shard.sentences) {
+    contextDiv.innerHTML = "<em>Context not available</em>";
+    return;
+  }
+
+  // Find sentences from the same year
+  const yearSentences = shard.sentences.filter((s) => s.year === year);
+
+  // Find the index of the current sentence by matching text
+  const currentIdx = yearSentences.findIndex(
+    (s) => s.text === text || s.text.includes(text) || text.includes(s.text),
+  );
+
+  if (currentIdx === -1) {
+    contextDiv.innerHTML = "<em>Context not available for this quote</em>";
+    return;
+  }
+
+  // Get surrounding sentences (3 before, 3 after)
+  const contextRange = 3;
+  const startIdx = Math.max(0, currentIdx - contextRange);
+  const endIdx = Math.min(yearSentences.length - 1, currentIdx + contextRange);
+
+  const contextSentences = yearSentences.slice(startIdx, endIdx + 1);
+
+  // Build context HTML
+  const contextHtml = contextSentences
+    .map((sentence, i) => {
+      const actualIdx = startIdx + i;
+      const isCurrent = actualIdx === currentIdx;
+
+      return `<p class="${
+        isCurrent ? "context-current" : "context-surrounding"
+      }">${sentence.text}</p>`;
+    })
+    .join("");
+
+  contextDiv.innerHTML = `<div class="context-content">${contextHtml}</div>`;
+}
+
+// Expose functions globally
 window.toggleCountryExpansion = toggleCountryExpansion;
+window.toggleQuoteContext = toggleQuoteContext;

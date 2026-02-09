@@ -1602,7 +1602,7 @@ tr:hover td {
   background: var(--color-bg-card);
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-sm);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
   border-left: 3px solid var(--color-accent);
 }
 
@@ -1619,12 +1619,79 @@ tr:hover td {
   border-radius: 2px;
 }
 
-.quote-section {
-  display: block;
+.quote-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
   margin-top: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.quote-section {
   font-size: 0.75rem;
   color: var(--color-text-muted);
   font-style: italic;
+}
+
+.quote-item .context-toggle {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--color-text-light);
+  transition: var(--transition-fast);
+}
+
+.quote-item .context-toggle:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.quote-item .context-toggle.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.quote-context {
+  margin-top: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-light);
+}
+
+.quote-context .context-loading {
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-size: 0.875rem;
+}
+
+.quote-context .context-content p {
+  margin-bottom: var(--space-sm);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text-light);
+}
+
+.quote-context .context-content p:last-child {
+  margin-bottom: 0;
+}
+
+.quote-context .context-current {
+  color: var(--color-text);
+  font-weight: 500;
+  background: #fef3c7;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-warning);
+}
+
+.quote-context .context-surrounding {
+  color: var(--color-text-light);
 }
 
 .more-quotes {
