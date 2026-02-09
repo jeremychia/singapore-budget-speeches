@@ -699,7 +699,7 @@ Method: Compare ministry distribution in 3-year windows:
 #### D. Explore the Code & Data
 ```
 Full Analysis on GitHub:
-https://github.com/jeremychia/singapore-budget-speeches
+https://github.com/parleh-mate/singapore-budget-speeches
 
 Repository Contents:
 • Jupyter notebooks (analysis/)
@@ -1329,7 +1329,7 @@ git commit -m "Add website to docs/ for GitHub Pages"
 git push origin main
 
 # 6. Enable GitHub Pages
-# Go to: github.com/jeremychia/singapore-budget-speeches/settings/pages
+# Go to: github.com/parleh-mate/singapore-budget-speeches/settings/pages
 # Source: main branch
 # Folder: /docs
 # Save
@@ -1762,7 +1762,7 @@ Full archive (all shards fetched): ~3.8MB
 
 ## Contact & Collaboration
 
-**Repository:** https://github.com/jeremychia/singapore-budget-speeches
+**Repository:** https://github.com/parleh-mate/singapore-budget-speeches
 
 **Issues/Feedback:** GitHub Issues tab
 

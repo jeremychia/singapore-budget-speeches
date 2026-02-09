@@ -456,7 +456,7 @@ async function loadContext(index) {
             </div>
             ${contextHtml}
             <div class="context-footer">
-                <a href="https://github.com/jeremychia/singapore-budget-speeches/blob/main/output_markdown/${result.year}.md"
+                <a href="https://github.com/parleh-mate/singapore-budget-speeches/blob/main/output_markdown/${result.year}.md"
                    target="_blank" class="view-full-speech">
                     View Full Speech →
                 </a>

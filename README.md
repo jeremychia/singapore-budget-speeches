@@ -21,7 +21,7 @@ A comprehensive data analysis project that extracts, processes, and visualizes S
 
 ```bash
 # Clone and install
-git clone https://github.com/jeremychia/singapore-budget-speeches.git
+git clone https://github.com/parleh-mate/singapore-budget-speeches.git
 cd singapore-budget-speeches
 poetry install
 
