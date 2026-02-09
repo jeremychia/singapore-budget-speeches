@@ -41,7 +41,7 @@
   },
   "CHN": {
     "country": "China",
-    "total": 257,
+    "total": 174,
     "region": "East Asia"
   },
   "IND": {
@@ -58,6 +58,11 @@
     "country": "Brunei",
     "total": 5,
     "region": "Southeast Asia"
+  },
+  "HKG": {
+    "country": "Hong Kong",
+    "total": 95,
+    "region": "East Asia"
   },
   "AUS": {
     "country": "Australia",

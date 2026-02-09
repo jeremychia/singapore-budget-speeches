@@ -27,8 +27,17 @@ COUNTRIES = {
             "Shanghai",
             "Shenzhen",
             "Guangzhou",
-            "Hong Kong",  # Often mentioned separately
         ],
+    },
+    "Hong Kong": {
+        "iso": "HKG",
+        "region": "East Asia",
+        "aliases": ["Hong Kong", "Hongkong", "HK"],
+    },
+    "Macau": {
+        "iso": "MAC",
+        "region": "East Asia",
+        "aliases": ["Macau", "Macao"],
     },
     "Japan": {
         "iso": "JPN",
@@ -760,7 +769,16 @@ COUNTRIES = {
 
 # Regional groupings for analysis
 REGIONS = {
-    "East Asia": ["China", "Japan", "South Korea", "North Korea", "Taiwan", "Mongolia"],
+    "East Asia": [
+        "China",
+        "Hong Kong",
+        "Macau",
+        "Japan",
+        "South Korea",
+        "North Korea",
+        "Taiwan",
+        "Mongolia",
+    ],
     "Southeast Asia": [
         "Malaysia",
         "Indonesia",
@@ -917,9 +935,9 @@ def extract_country_mentions(text: str, patterns: dict) -> dict[str, list[str]]:
     return mentions
 
 
-def process_parquet_files(parquet_dir: Path, patterns: dict) -> dict:
+def process_parquet_files(parquet_dir: Path, patterns: dict) -> dict:  # type: ignore[type-arg]
     """Process all parquet files and extract country mentions."""
-    results = {
+    results: dict = {
         "by_year": defaultdict(lambda: defaultdict(list)),
         "by_country": defaultdict(lambda: defaultdict(list)),
         "totals": defaultdict(int),
@@ -972,17 +990,15 @@ def process_parquet_files(parquet_dir: Path, patterns: dict) -> dict:
     return results
 
 
-def generate_output_json(results: dict, output_dir: Path):
+def generate_output_json(results: dict, output_dir: Path):  # type: ignore[type-arg]
     """Generate JSON files for the website."""
 
     # 1. Overview file with totals and regional aggregates
-    overview = {
+    overview: dict = {
         "total_mentions": sum(results["totals"].values()),
         "countries_mentioned": len(results["totals"]),
         "by_region": {},
-        "country_totals": dict(
-            sorted(results["totals"].items(), key=lambda x: -x[1])[:50]
-        ),
+        "country_totals": dict(sorted(results["totals"].items(), key=lambda x: -x[1])[:50]),
         "years": sorted(results["by_year"].keys()),
     }
 
@@ -992,11 +1008,15 @@ def generate_output_json(results: dict, output_dir: Path):
         if region_total > 0:
             overview["by_region"][region] = {
                 "total": region_total,
-                "countries": {c: results["totals"].get(c, 0) for c in countries if results["totals"].get(c, 0) > 0},
+                "countries": {
+                    c: results["totals"].get(c, 0)
+                    for c in countries
+                    if results["totals"].get(c, 0) > 0
+                },
             }
 
     # 2. Time series data for charts
-    time_series = {"years": [], "countries": {}}
+    time_series: dict = {"years": [], "countries": {}}
 
     all_years = sorted(results["by_year"].keys())
     time_series["years"] = all_years

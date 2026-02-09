@@ -1,11 +1,12 @@
 {
-  "total_mentions": 2809,
-  "countries_mentioned": 72,
+  "total_mentions": 2821,
+  "countries_mentioned": 73,
   "by_region": {
     "East Asia": {
-      "total": 558,
+      "total": 570,
       "countries": {
-        "China": 257,
+        "China": 174,
+        "Hong Kong": 95,
         "Japan": 207,
         "South Korea": 50,
         "Taiwan": 44
@@ -148,10 +149,11 @@
   "country_totals": {
     "United States": 1092,
     "Malaysia": 273,
-    "China": 257,
     "United Kingdom": 209,
     "Japan": 207,
     "Indonesia": 193,
+    "China": 174,
+    "Hong Kong": 95,
     "India": 75,
     "Germany": 57,
     "South Korea": 50,
@@ -194,8 +196,7 @@
     "Maldives": 2,
     "Latvia": 2,
     "Lithuania": 2,
-    "Serbia": 1,
-    "Austria": 1
+    "Serbia": 1
   },
   "years": [
     1960,

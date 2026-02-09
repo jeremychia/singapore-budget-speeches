@@ -85,7 +85,9 @@ function renderWorldMap() {
   // Create hover text
   const hoverText = isoCodes.map((iso, i) => {
     const d = mapData[iso];
-    return `<b>${d.country}</b><br>` + `${d.total} mentions<br>` + `${d.region}`;
+    return (
+      `<b>${d.country}</b><br>` + `${d.total} mentions<br>` + `${d.region}`
+    );
   });
 
   const trace = {
@@ -154,7 +156,7 @@ function renderWorldMap() {
     if (countryName && countryDetailsData[countryName]) {
       // Scroll to and expand that country
       const countryCard = document.querySelector(
-        `[data-country="${countryName}"]`
+        `[data-country="${countryName}"]`,
       );
       if (countryCard) {
         countryCard.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -218,7 +220,7 @@ function setupCountrySelectors() {
           ([country]) =>
             `<option value="${country}" ${
               country === defaults[index] ? "selected" : ""
-            }>${country}</option>`
+            }>${country}</option>`,
         )
         .join("");
 
@@ -319,9 +321,7 @@ function renderCountryTrends() {
 function populateRegionFilter() {
   const select = document.getElementById("regionFilter");
   const regions = [
-    ...new Set(
-      Object.values(countryDetailsData).map((c) => c.region)
-    ),
+    ...new Set(Object.values(countryDetailsData).map((c) => c.region)),
   ].sort();
 
   select.innerHTML =
@@ -329,7 +329,9 @@ function populateRegionFilter() {
     regions.map((r) => `<option value="${r}">${r}</option>`).join("");
 
   select.addEventListener("change", renderCountryList);
-  document.getElementById("sortBy").addEventListener("change", renderCountryList);
+  document
+    .getElementById("sortBy")
+    .addEventListener("change", renderCountryList);
 }
 
 function renderCountryList() {
@@ -374,18 +376,27 @@ function renderCountryList() {
 
       return `
       <div class="country-card" data-country="${country.name}">
-        <div class="country-header" onclick="toggleCountryExpansion('${country.name}')">
+        <div class="country-header" onclick="toggleCountryExpansion('${
+          country.name
+        }')">
           <div class="country-info">
             <span class="country-name">${country.name}</span>
-            <span class="country-region" style="color: ${color}">${country.region}</span>
+            <span class="country-region" style="color: ${color}">${
+              country.region
+            }</span>
           </div>
           <div class="country-stats">
-            <span class="mention-count">${country.total_mentions} mentions</span>
+            <span class="mention-count">${
+              country.total_mentions
+            } mentions</span>
             <span class="year-range">${yearRange}</span>
             <span class="expand-icon">▼</span>
           </div>
         </div>
-        <div class="country-details" id="details-${country.name.replace(/\s+/g, "-")}">
+        <div class="country-details" id="details-${country.name.replace(
+          /\s+/g,
+          "-",
+        )}">
           ${renderCountryQuotes(country)}
         </div>
       </div>
@@ -412,7 +423,9 @@ function renderCountryQuotes(country) {
           return `
           <div class="quote-item">
             <p class="quote-text">${highlightedText}</p>
-            ${q.section ? `<span class="quote-section">${q.section}</span>` : ""}
+            ${
+              q.section ? `<span class="quote-section">${q.section}</span>` : ""
+            }
           </div>
         `;
         })
@@ -421,7 +434,9 @@ function renderCountryQuotes(country) {
       const moreCount = quotes.length - 3;
       const moreIndicator =
         moreCount > 0
-          ? `<p class="more-quotes">+ ${moreCount} more quote${moreCount > 1 ? "s" : ""} in ${year}</p>`
+          ? `<p class="more-quotes">+ ${moreCount} more quote${
+              moreCount > 1 ? "s" : ""
+            } in ${year}</p>`
           : "";
 
       return `
@@ -452,7 +467,7 @@ function escapeRegex(str) {
 function toggleCountryExpansion(countryName) {
   const card = document.querySelector(`[data-country="${countryName}"]`);
   const details = document.getElementById(
-    `details-${countryName.replace(/\s+/g, "-")}`
+    `details-${countryName.replace(/\s+/g, "-")}`,
   );
   const icon = card.querySelector(".expand-icon");
 
