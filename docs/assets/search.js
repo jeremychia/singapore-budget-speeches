@@ -21,10 +21,18 @@ function setupEventListeners() {
     const searchButton = document.getElementById('searchButton');
     const searchInput = document.getElementById('searchInput');
     const hintButtons = document.querySelectorAll('.hint-button');
+    const sortFilter = document.getElementById('sortFilter');
     
     searchButton.addEventListener('click', performSearch);
     searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') performSearch();
+    });
+    
+    // Re-sort and re-display results when sort option changes
+    sortFilter.addEventListener('change', () => {
+        if (window.currentResults && window.currentResults.length > 0) {
+            resortAndDisplayResults();
+        }
     });
     
     hintButtons.forEach(button => {
@@ -34,6 +42,13 @@ function setupEventListeners() {
             performSearch();
         });
     });
+}
+
+// Re-sort current results and re-display them
+function resortAndDisplayResults() {
+    const sortFilter = document.getElementById('sortFilter').value;
+    sortResults(window.currentResults, sortFilter);
+    displayResults(window.currentResults, window.currentQuery);
 }
 
 // Load search index overview (lightweight)
