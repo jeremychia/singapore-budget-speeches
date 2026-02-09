@@ -186,6 +186,13 @@ function addChartOverlayControls() {
     // Insert after description
     description.insertAdjacentElement("afterend", controls);
 
+    // Create minister legend container (hidden by default)
+    const legendDiv = document.createElement("div");
+    legendDiv.id = `${chartName}-minister-legend`;
+    legendDiv.className = "minister-legend";
+    legendDiv.style.display = "none";
+    controls.insertAdjacentElement("afterend", legendDiv);
+
     // Add event listeners
     document
       .getElementById(`${chartName}-crisis`)
@@ -199,8 +206,42 @@ function addChartOverlayControls() {
       .addEventListener("change", (e) => {
         chartOverlays[chartName].ministers = e.target.checked;
         updateChartOverlays(chartName);
+        // Toggle legend visibility
+        const legend = document.getElementById(`${chartName}-minister-legend`);
+        legend.style.display = e.target.checked ? "flex" : "none";
+        if (e.target.checked && !legend.innerHTML) {
+          renderMinisterLegend(chartName);
+        }
       });
   });
+}
+
+// Render minister legend for a chart
+function renderMinisterLegend(chartName) {
+  const legend = document.getElementById(`${chartName}-minister-legend`);
+  // Only show unique ministers (Goh Keng Swee appears twice)
+  const uniqueMinisters = [];
+  const seenNames = new Set();
+  MINISTER_TENURES.forEach((tenure) => {
+    if (!seenNames.has(tenure.name)) {
+      seenNames.add(tenure.name);
+      uniqueMinisters.push(tenure);
+    }
+  });
+
+  legend.innerHTML = uniqueMinisters
+    .map(
+      (tenure) => `
+      <span class="minister-legend-item">
+        <span class="minister-color-box" style="background: ${tenure.color.replace(
+          "0.15",
+          "0.5",
+        )}"></span>
+        <span class="minister-name">${tenure.name}</span>
+      </span>
+    `,
+    )
+    .join("");
 }
 
 // Update chart overlays based on toggle state
@@ -278,19 +319,30 @@ function updateChartOverlays(chartName) {
   // Build annotations
   let annotations = [];
 
-  // Add crisis labels if enabled
+  // Add crisis labels if enabled - position them along the line at different heights
   if (chartOverlays[chartName].crisis) {
+    const labelPositions = [0.85, 0.75, 0.65, 0.85, 0.75, 0.65]; // Alternate heights
     annotations = annotations.concat(
-      CRISIS_YEARS.map((crisis, idx) => ({
-        x: crisis.year.toString(),
-        y: yRange[1],
-        text: crisis.label,
-        showarrow: false,
-        textangle: -45,
-        xanchor: "left",
-        yanchor: "bottom",
-        font: { size: 9, color: colors.accent },
-      })),
+      CRISIS_YEARS.map((crisis, idx) => {
+        // Calculate y position as fraction of range
+        const yPos =
+          yRange[0] + (yRange[1] - yRange[0]) * labelPositions[idx % 6];
+        return {
+          x: crisis.year.toString(),
+          y: yPos,
+          text: crisis.label,
+          showarrow: true,
+          arrowhead: 0,
+          arrowwidth: 1,
+          arrowcolor: colors.accent,
+          ax: 25,
+          ay: 0,
+          xanchor: "left",
+          font: { size: 9, color: colors.accent },
+          bgcolor: "rgba(255,255,255,0.8)",
+          borderpad: 2,
+        };
+      }),
     );
   }
 

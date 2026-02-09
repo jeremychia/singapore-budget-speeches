@@ -791,6 +791,36 @@ a:hover {
   white-space: nowrap;
 }
 
+/* Minister legend for chart overlays */
+.minister-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+  background: var(--color-bg-alt);
+  border-radius: var(--border-radius);
+  font-size: 0.75rem;
+}
+
+.minister-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.minister-color-box {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.minister-name {
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
 /* Topic selector for trends chart */
 .topic-selector {
   display: flex;
