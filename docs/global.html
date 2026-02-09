@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global References | SG Budget (1960-2025)</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="container">
+        <h1 class="logo">SG Budget Speeches</h1>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="topics.html">Topics</a></li>
+          <li><a href="ministers.html">Ministers</a></li>
+          <li><a href="global.html" class="active">Global</a></li>
+          <li><a href="language.html">Language</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="page-header">
+        <h2>Singapore's Global Outlook</h2>
+        <p class="subtitle">
+          Country and region references in 65 years of budget speeches
+        </p>
+      </section>
+
+      <section id="loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading global references...</p>
+      </section>
+
+      <section id="content" class="content-area" style="display: none">
+        <!-- Hero: Interactive World Map -->
+        <div class="chart-container hero-chart">
+          <h3>Countries Mentioned in Budget Speeches</h3>
+          <p class="chart-description">
+            Hover over countries to see mention counts. Darker colours indicate
+            more references. Click a country to see detailed quotes.
+          </p>
+          <div id="worldMap"></div>
+        </div>
+
+        <!-- Regional Summary Cards -->
+        <div class="stats-overview">
+          <h3>Regional Breakdown</h3>
+          <div id="regionCards" class="region-cards"></div>
+        </div>
+
+        <!-- Country Trends Chart -->
+        <div class="chart-container">
+          <h3>Country References Over Time</h3>
+          <p class="chart-description">
+            Track how frequently different countries are mentioned across
+            decades. Select countries to compare.
+          </p>
+          <div class="country-selector">
+            <label>Compare countries:</label>
+            <select id="countrySelect1"></select>
+            <select id="countrySelect2"></select>
+            <select id="countrySelect3"></select>
+          </div>
+          <div id="countryTrendsChart"></div>
+        </div>
+
+        <!-- Country Details with Expandable Quotes -->
+        <div class="chart-container">
+          <h3>Country References</h3>
+          <p class="chart-description">
+            Browse countries alphabetically. Click to expand and see actual
+            quotes from budget speeches.
+          </p>
+          <div class="country-filter-controls">
+            <div class="filter-group">
+              <label for="regionFilter">Filter by Region:</label>
+              <select id="regionFilter">
+                <option value="">All Regions</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="sortBy">Sort by:</label>
+              <select id="sortBy">
+                <option value="mentions">Most Mentioned</option>
+                <option value="name">Alphabetical</option>
+                <option value="recent">Most Recent</option>
+              </select>
+            </div>
+          </div>
+          <div id="countryList" class="country-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          Data Source:
+          <a href="https://sprs.parl.gov.sg/" target="_blank"
+            >Singapore Parliament Hansard</a
+          >
+        </p>
+        <p>
+          <a
+            href="https://github.com/jeremychia/singapore-budget-speeches"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/global.js"></script>
+  </body>
+</html>

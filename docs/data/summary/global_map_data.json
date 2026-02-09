@@ -1,0 +1,362 @@
+{
+  "MYS": {
+    "country": "Malaysia",
+    "total": 273,
+    "region": "Southeast Asia"
+  },
+  "GBR": {
+    "country": "United Kingdom",
+    "total": 209,
+    "region": "Western Europe"
+  },
+  "USA": {
+    "country": "United States",
+    "total": 1092,
+    "region": "North America"
+  },
+  "IDN": {
+    "country": "Indonesia",
+    "total": 193,
+    "region": "Southeast Asia"
+  },
+  "JPN": {
+    "country": "Japan",
+    "total": 207,
+    "region": "East Asia"
+  },
+  "KOR": {
+    "country": "South Korea",
+    "total": 50,
+    "region": "East Asia"
+  },
+  "LKA": {
+    "country": "Sri Lanka",
+    "total": 5,
+    "region": "South Asia"
+  },
+  "CAN": {
+    "country": "Canada",
+    "total": 8,
+    "region": "North America"
+  },
+  "CHN": {
+    "country": "China",
+    "total": 257,
+    "region": "East Asia"
+  },
+  "IND": {
+    "country": "India",
+    "total": 75,
+    "region": "South Asia"
+  },
+  "DEU": {
+    "country": "Germany",
+    "total": 57,
+    "region": "Western Europe"
+  },
+  "BRN": {
+    "country": "Brunei",
+    "total": 5,
+    "region": "Southeast Asia"
+  },
+  "AUS": {
+    "country": "Australia",
+    "total": 37,
+    "region": "Oceania"
+  },
+  "NZL": {
+    "country": "New Zealand",
+    "total": 21,
+    "region": "Oceania"
+  },
+  "ISR": {
+    "country": "Israel",
+    "total": 8,
+    "region": "Middle East"
+  },
+  "PHL": {
+    "country": "Philippines",
+    "total": 8,
+    "region": "Southeast Asia"
+  },
+  "NLD": {
+    "country": "Netherlands",
+    "total": 10,
+    "region": "Western Europe"
+  },
+  "DNK": {
+    "country": "Denmark",
+    "total": 3,
+    "region": "Northern Europe"
+  },
+  "SRB": {
+    "country": "Serbia",
+    "total": 1,
+    "region": "Eastern Europe"
+  },
+  "RUS": {
+    "country": "Russia",
+    "total": 11,
+    "region": "Eastern Europe"
+  },
+  "VNM": {
+    "country": "Vietnam",
+    "total": 32,
+    "region": "Southeast Asia"
+  },
+  "FRA": {
+    "country": "France",
+    "total": 27,
+    "region": "Western Europe"
+  },
+  "CHE": {
+    "country": "Switzerland",
+    "total": 18,
+    "region": "Western Europe"
+  },
+  "TWN": {
+    "country": "Taiwan",
+    "total": 44,
+    "region": "East Asia"
+  },
+  "AUT": {
+    "country": "Austria",
+    "total": 1,
+    "region": "Western Europe"
+  },
+  "BEL": {
+    "country": "Belgium",
+    "total": 4,
+    "region": "Western Europe"
+  },
+  "ITA": {
+    "country": "Italy",
+    "total": 3,
+    "region": "Southern Europe"
+  },
+  "NOR": {
+    "country": "Norway",
+    "total": 1,
+    "region": "Northern Europe"
+  },
+  "KEN": {
+    "country": "Kenya",
+    "total": 1,
+    "region": "Sub-Saharan Africa"
+  },
+  "ZAF": {
+    "country": "South Africa",
+    "total": 1,
+    "region": "Sub-Saharan Africa"
+  },
+  "THA": {
+    "country": "Thailand",
+    "total": 37,
+    "region": "Southeast Asia"
+  },
+  "EGY": {
+    "country": "Egypt",
+    "total": 1,
+    "region": "North Africa"
+  },
+  "KHM": {
+    "country": "Cambodia",
+    "total": 6,
+    "region": "Southeast Asia"
+  },
+  "LAO": {
+    "country": "Laos",
+    "total": 4,
+    "region": "Southeast Asia"
+  },
+  "IRN": {
+    "country": "Iran",
+    "total": 7,
+    "region": "Middle East"
+  },
+  "IRQ": {
+    "country": "Iraq",
+    "total": 7,
+    "region": "Middle East"
+  },
+  "POL": {
+    "country": "Poland",
+    "total": 4,
+    "region": "Eastern Europe"
+  },
+  "SAU": {
+    "country": "Saudi Arabia",
+    "total": 2,
+    "region": "Middle East"
+  },
+  "ARE": {
+    "country": "United Arab Emirates",
+    "total": 4,
+    "region": "Middle East"
+  },
+  "ESP": {
+    "country": "Spain",
+    "total": 3,
+    "region": "Southern Europe"
+  },
+  "LUX": {
+    "country": "Luxembourg",
+    "total": 1,
+    "region": "Western Europe"
+  },
+  "KWT": {
+    "country": "Kuwait",
+    "total": 1,
+    "region": "Middle East"
+  },
+  "PAK": {
+    "country": "Pakistan",
+    "total": 1,
+    "region": "South Asia"
+  },
+  "FJI": {
+    "country": "Fiji",
+    "total": 1,
+    "region": "Oceania"
+  },
+  "MMR": {
+    "country": "Myanmar",
+    "total": 2,
+    "region": "Southeast Asia"
+  },
+  "URY": {
+    "country": "Uruguay",
+    "total": 1,
+    "region": "South America"
+  },
+  "SWE": {
+    "country": "Sweden",
+    "total": 4,
+    "region": "Northern Europe"
+  },
+  "MEX": {
+    "country": "Mexico",
+    "total": 4,
+    "region": "North America"
+  },
+  "IRL": {
+    "country": "Ireland",
+    "total": 8,
+    "region": "Western Europe"
+  },
+  "BRA": {
+    "country": "Brazil",
+    "total": 4,
+    "region": "South America"
+  },
+  "ARG": {
+    "country": "Argentina",
+    "total": 1,
+    "region": "South America"
+  },
+  "AFG": {
+    "country": "Afghanistan",
+    "total": 1,
+    "region": "South Asia"
+  },
+  "VEN": {
+    "country": "Venezuela",
+    "total": 1,
+    "region": "South America"
+  },
+  "CHL": {
+    "country": "Chile",
+    "total": 2,
+    "region": "South America"
+  },
+  "PNG": {
+    "country": "Papua New Guinea",
+    "total": 1,
+    "region": "Oceania"
+  },
+  "PAN": {
+    "country": "Panama",
+    "total": 1,
+    "region": "Central America"
+  },
+  "ECU": {
+    "country": "Ecuador",
+    "total": 1,
+    "region": "South America"
+  },
+  "HUN": {
+    "country": "Hungary",
+    "total": 3,
+    "region": "Eastern Europe"
+  },
+  "SVK": {
+    "country": "Slovakia",
+    "total": 2,
+    "region": "Eastern Europe"
+  },
+  "MDV": {
+    "country": "Maldives",
+    "total": 2,
+    "region": "South Asia"
+  },
+  "FIN": {
+    "country": "Finland",
+    "total": 5,
+    "region": "Northern Europe"
+  },
+  "UKR": {
+    "country": "Ukraine",
+    "total": 11,
+    "region": "Eastern Europe"
+  },
+  "TUR": {
+    "country": "Turkey",
+    "total": 1,
+    "region": "Middle East"
+  },
+  "BHR": {
+    "country": "Bahrain",
+    "total": 1,
+    "region": "Middle East"
+  },
+  "QAT": {
+    "country": "Qatar",
+    "total": 1,
+    "region": "Middle East"
+  },
+  "CZE": {
+    "country": "Czech Republic",
+    "total": 1,
+    "region": "Eastern Europe"
+  },
+  "LVA": {
+    "country": "Latvia",
+    "total": 2,
+    "region": "Eastern Europe"
+  },
+  "LTU": {
+    "country": "Lithuania",
+    "total": 2,
+    "region": "Eastern Europe"
+  },
+  "PRT": {
+    "country": "Portugal",
+    "total": 1,
+    "region": "Southern Europe"
+  },
+  "GRC": {
+    "country": "Greece",
+    "total": 3,
+    "region": "Southern Europe"
+  },
+  "BGD": {
+    "country": "Bangladesh",
+    "total": 1,
+    "region": "South Asia"
+  },
+  "SYR": {
+    "country": "Syria",
+    "total": 1,
+    "region": "Middle East"
+  }
+}

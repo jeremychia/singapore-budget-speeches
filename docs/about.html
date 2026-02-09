@@ -15,6 +15,7 @@
           <li><a href="search.html">Search</a></li>
           <li><a href="topics.html">Topics</a></li>
           <li><a href="ministers.html">Ministers</a></li>
+          <li><a href="global.html">Global</a></li>
           <li><a href="language.html">Language</a></li>
           <li><a href="about.html" class="active">About</a></li>
         </ul>
@@ -62,6 +63,36 @@
             sentences, and classified by topic using pattern matching.
             Linguistic metrics (readability, sentence length) were calculated
             using standard NLP methods. All code is open-source.
+          </p>
+
+          <h4>Global References</h4>
+          <p>
+            Country and region mentions are identified using pattern matching
+            with a curated list of 100+ countries and their common aliases. For
+            each country, we search for:
+          </p>
+          <ul>
+            <li>
+              <strong>Official names:</strong> "United States", "United Kingdom"
+            </li>
+            <li>
+              <strong>Common abbreviations:</strong> "US", "USA", "UK", "UAE"
+            </li>
+            <li><strong>Demonyms:</strong> "American", "British", "Chinese"</li>
+            <li>
+              <strong>Major cities:</strong> "Tokyo", "London", "Beijing" (as
+              proxies for their countries)
+            </li>
+            <li>
+              <strong>Historical names:</strong> "Malaya", "Burma", "Ceylon",
+              "Soviet Union"
+            </li>
+          </ul>
+          <p>
+            Searches use word boundary matching to avoid false positives (e.g.,
+            "china" as porcelain vs "China" the country). Results are aggregated
+            by year and region to show Singapore's evolving global outlook
+            across 65 years of budget speeches.
           </p>
         </div>
 

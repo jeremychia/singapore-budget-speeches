@@ -1,0 +1,268 @@
+{
+  "total_mentions": 2809,
+  "countries_mentioned": 72,
+  "by_region": {
+    "East Asia": {
+      "total": 558,
+      "countries": {
+        "China": 257,
+        "Japan": 207,
+        "South Korea": 50,
+        "Taiwan": 44
+      }
+    },
+    "Southeast Asia": {
+      "total": 560,
+      "countries": {
+        "Malaysia": 273,
+        "Indonesia": 193,
+        "Thailand": 37,
+        "Vietnam": 32,
+        "Philippines": 8,
+        "Myanmar": 2,
+        "Cambodia": 6,
+        "Laos": 4,
+        "Brunei": 5
+      }
+    },
+    "South Asia": {
+      "total": 85,
+      "countries": {
+        "India": 75,
+        "Pakistan": 1,
+        "Bangladesh": 1,
+        "Sri Lanka": 5,
+        "Maldives": 2,
+        "Afghanistan": 1
+      }
+    },
+    "Oceania": {
+      "total": 60,
+      "countries": {
+        "Australia": 37,
+        "New Zealand": 21,
+        "Papua New Guinea": 1,
+        "Fiji": 1
+      }
+    },
+    "Western Europe": {
+      "total": 335,
+      "countries": {
+        "United Kingdom": 209,
+        "Germany": 57,
+        "France": 27,
+        "Netherlands": 10,
+        "Belgium": 4,
+        "Luxembourg": 1,
+        "Switzerland": 18,
+        "Austria": 1,
+        "Ireland": 8
+      }
+    },
+    "Northern Europe": {
+      "total": 13,
+      "countries": {
+        "Sweden": 4,
+        "Norway": 1,
+        "Denmark": 3,
+        "Finland": 5
+      }
+    },
+    "Southern Europe": {
+      "total": 10,
+      "countries": {
+        "Italy": 3,
+        "Spain": 3,
+        "Portugal": 1,
+        "Greece": 3
+      }
+    },
+    "Eastern Europe": {
+      "total": 37,
+      "countries": {
+        "Russia": 11,
+        "Poland": 4,
+        "Ukraine": 11,
+        "Czech Republic": 1,
+        "Hungary": 3,
+        "Serbia": 1,
+        "Slovakia": 2,
+        "Latvia": 2,
+        "Lithuania": 2
+      }
+    },
+    "North America": {
+      "total": 1104,
+      "countries": {
+        "United States": 1092,
+        "Canada": 8,
+        "Mexico": 4
+      }
+    },
+    "Central America": {
+      "total": 1,
+      "countries": {
+        "Panama": 1
+      }
+    },
+    "South America": {
+      "total": 10,
+      "countries": {
+        "Brazil": 4,
+        "Argentina": 1,
+        "Chile": 2,
+        "Venezuela": 1,
+        "Ecuador": 1,
+        "Uruguay": 1
+      }
+    },
+    "Middle East": {
+      "total": 33,
+      "countries": {
+        "Saudi Arabia": 2,
+        "United Arab Emirates": 4,
+        "Israel": 8,
+        "Turkey": 1,
+        "Iran": 7,
+        "Iraq": 7,
+        "Kuwait": 1,
+        "Qatar": 1,
+        "Bahrain": 1,
+        "Syria": 1
+      }
+    },
+    "North Africa": {
+      "total": 1,
+      "countries": {
+        "Egypt": 1
+      }
+    },
+    "Sub-Saharan Africa": {
+      "total": 2,
+      "countries": {
+        "South Africa": 1,
+        "Kenya": 1
+      }
+    }
+  },
+  "country_totals": {
+    "United States": 1092,
+    "Malaysia": 273,
+    "China": 257,
+    "United Kingdom": 209,
+    "Japan": 207,
+    "Indonesia": 193,
+    "India": 75,
+    "Germany": 57,
+    "South Korea": 50,
+    "Taiwan": 44,
+    "Australia": 37,
+    "Thailand": 37,
+    "Vietnam": 32,
+    "France": 27,
+    "New Zealand": 21,
+    "Switzerland": 18,
+    "Russia": 11,
+    "Ukraine": 11,
+    "Netherlands": 10,
+    "Canada": 8,
+    "Israel": 8,
+    "Philippines": 8,
+    "Ireland": 8,
+    "Iran": 7,
+    "Iraq": 7,
+    "Cambodia": 6,
+    "Sri Lanka": 5,
+    "Brunei": 5,
+    "Finland": 5,
+    "Belgium": 4,
+    "Laos": 4,
+    "Poland": 4,
+    "United Arab Emirates": 4,
+    "Sweden": 4,
+    "Mexico": 4,
+    "Brazil": 4,
+    "Denmark": 3,
+    "Italy": 3,
+    "Spain": 3,
+    "Hungary": 3,
+    "Greece": 3,
+    "Saudi Arabia": 2,
+    "Myanmar": 2,
+    "Chile": 2,
+    "Slovakia": 2,
+    "Maldives": 2,
+    "Latvia": 2,
+    "Lithuania": 2,
+    "Serbia": 1,
+    "Austria": 1
+  },
+  "years": [
+    1960,
+    1961,
+    1962,
+    1963,
+    1964,
+    1965,
+    1966,
+    1967,
+    1968,
+    1969,
+    1970,
+    1971,
+    1972,
+    1973,
+    1974,
+    1975,
+    1976,
+    1977,
+    1978,
+    1979,
+    1980,
+    1981,
+    1982,
+    1983,
+    1984,
+    1985,
+    1986,
+    1987,
+    1988,
+    1989,
+    1990,
+    1991,
+    1992,
+    1993,
+    1994,
+    1995,
+    1996,
+    1997,
+    1998,
+    1999,
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ]
+}
