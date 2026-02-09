@@ -746,6 +746,51 @@ a:hover {
   margin-bottom: var(--space-lg);
 }
 
+/* Chart overlay toggle controls */
+.chart-overlay-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-alt);
+  border-radius: var(--border-radius);
+  font-size: 0.85rem;
+}
+
+.overlay-label {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-right: var(--space-sm);
+}
+
+.overlay-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+}
+
+.overlay-toggle:hover {
+  background: var(--color-border-light);
+}
+
+.overlay-toggle input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.toggle-text {
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
 /* Topic selector for trends chart */
 .topic-selector {
   display: flex;

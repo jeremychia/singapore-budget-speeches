@@ -20,6 +20,94 @@ const ministerOrder = [
   "Lawrence Wong",
 ];
 
+// Crisis years for annotations
+const CRISIS_YEARS = [
+  { year: 1973, label: "Oil Crisis" },
+  { year: 1985, label: "1985 Recession" },
+  { year: 1997, label: "Asian Financial Crisis" },
+  { year: 2003, label: "SARS" },
+  { year: 2008, label: "Global Financial Crisis" },
+  { year: 2020, label: "COVID-19" },
+];
+
+// Minister tenure periods (for shaded regions)
+const MINISTER_TENURES = [
+  {
+    name: "Goh Keng Swee",
+    start: 1959,
+    end: 1965,
+    color: "rgba(12,35,64,0.15)",
+  },
+  {
+    name: "Lim Kim San",
+    start: 1965,
+    end: 1967,
+    color: "rgba(200,16,46,0.15)",
+  },
+  {
+    name: "Goh Keng Swee",
+    start: 1967,
+    end: 1970,
+    color: "rgba(12,35,64,0.15)",
+  },
+  {
+    name: "Hon Sui Sen",
+    start: 1970,
+    end: 1983,
+    color: "rgba(45,106,79,0.15)",
+  },
+  {
+    name: "Goh Chok Tong",
+    start: 1983,
+    end: 1985,
+    color: "rgba(212,167,44,0.15)",
+  },
+  {
+    name: "Dr Tony Tan Keng Yam",
+    start: 1985,
+    end: 1991,
+    color: "rgba(158,162,162,0.15)",
+  },
+  {
+    name: "Dr Richard Hu Tsu Tau",
+    start: 1991,
+    end: 2001,
+    color: "rgba(12,35,64,0.15)",
+  },
+  {
+    name: "Lee Hsien Loong",
+    start: 2001,
+    end: 2007,
+    color: "rgba(200,16,46,0.15)",
+  },
+  {
+    name: "Tharman Shanmugaratnam",
+    start: 2007,
+    end: 2015,
+    color: "rgba(45,106,79,0.15)",
+  },
+  {
+    name: "Heng Swee Keat",
+    start: 2015,
+    end: 2021,
+    color: "rgba(212,167,44,0.15)",
+  },
+  {
+    name: "Lawrence Wong",
+    start: 2021,
+    end: 2026,
+    color: "rgba(158,162,162,0.15)",
+  },
+];
+
+// Toggle state for each chart
+const chartOverlays = {
+  vocabulary: { crisis: false, ministers: false },
+  temporal: { crisis: false, ministers: false },
+  certainty: { crisis: false, ministers: false },
+  passive: { crisis: false, ministers: false },
+};
+
 // Civic Strength color palette
 const colors = {
   primary: "#0C2340", // Deep Navy
@@ -54,6 +142,8 @@ async function loadLanguageData() {
     renderTemporalChart();
     renderCertaintyChart();
     renderPassiveChart();
+    // Add overlay toggle controls after charts are rendered
+    addChartOverlayControls();
   } catch (error) {
     console.error("Failed to load language data:", error);
     document.getElementById("loading").innerHTML = `
@@ -66,6 +156,191 @@ async function loadLanguageData() {
 function hideLoading() {
   document.getElementById("loading").style.display = "none";
   document.getElementById("content").style.display = "block";
+}
+
+// Add toggle controls to linguistic charts
+function addChartOverlayControls() {
+  const charts = ["vocabulary", "temporal", "certainty", "passive"];
+
+  charts.forEach((chartName) => {
+    const chartContainer = document
+      .getElementById(`${chartName}Chart`)
+      .closest(".chart-container");
+    const description = chartContainer.querySelector(".chart-description");
+
+    // Create toggle controls container
+    const controls = document.createElement("div");
+    controls.className = "chart-overlay-controls";
+    controls.innerHTML = `
+      <span class="overlay-label">Show overlays:</span>
+      <label class="overlay-toggle">
+        <input type="checkbox" id="${chartName}-crisis" />
+        <span class="toggle-text">Crisis Years</span>
+      </label>
+      <label class="overlay-toggle">
+        <input type="checkbox" id="${chartName}-ministers" />
+        <span class="toggle-text">Minister Periods</span>
+      </label>
+    `;
+
+    // Insert after description
+    description.insertAdjacentElement("afterend", controls);
+
+    // Add event listeners
+    document
+      .getElementById(`${chartName}-crisis`)
+      .addEventListener("change", (e) => {
+        chartOverlays[chartName].crisis = e.target.checked;
+        updateChartOverlays(chartName);
+      });
+
+    document
+      .getElementById(`${chartName}-ministers`)
+      .addEventListener("change", (e) => {
+        chartOverlays[chartName].ministers = e.target.checked;
+        updateChartOverlays(chartName);
+      });
+  });
+}
+
+// Update chart overlays based on toggle state
+function updateChartOverlays(chartName) {
+  const chartDiv = document.getElementById(`${chartName}Chart`);
+  const currentLayout = chartDiv.layout || {};
+
+  // Get Y-axis range based on chart type
+  let yRange;
+  switch (chartName) {
+    case "vocabulary":
+      yRange = [0.1, 0.35];
+      break;
+    case "temporal":
+      yRange = [0.3, 1.0];
+      break;
+    case "certainty":
+      yRange = [0.5, 1.0];
+      break;
+    case "passive":
+      yRange = [0, 45];
+      break;
+  }
+
+  // Build shapes array
+  let shapes = [];
+
+  // Add minister tenure shapes if enabled
+  if (chartOverlays[chartName].ministers) {
+    shapes = shapes.concat(
+      MINISTER_TENURES.map((tenure) => ({
+        type: "rect",
+        x0: tenure.start.toString(),
+        x1: tenure.end.toString(),
+        y0: yRange[0],
+        y1: yRange[1],
+        fillcolor: tenure.color,
+        line: { width: 0 },
+        layer: "below",
+      })),
+    );
+  }
+
+  // Add crisis lines if enabled
+  if (chartOverlays[chartName].crisis) {
+    shapes = shapes.concat(
+      CRISIS_YEARS.map((crisis) => ({
+        type: "line",
+        x0: crisis.year.toString(),
+        x1: crisis.year.toString(),
+        y0: yRange[0],
+        y1: yRange[1],
+        line: { color: colors.accent, width: 1.5, dash: "dot" },
+      })),
+    );
+  }
+
+  // Add reference line for temporal/certainty charts
+  if (
+    (chartName === "temporal" || chartName === "certainty") &&
+    currentLayout.shapes
+  ) {
+    // Keep the "balanced" reference line
+    const refLine = {
+      type: "line",
+      x0: "1960",
+      x1: "2025",
+      y0: 0.5,
+      y1: 0.5,
+      line: { color: colors.neutral, width: 1, dash: "dash" },
+    };
+    shapes.push(refLine);
+  }
+
+  // Build annotations
+  let annotations = [];
+
+  // Add crisis labels if enabled
+  if (chartOverlays[chartName].crisis) {
+    annotations = annotations.concat(
+      CRISIS_YEARS.map((crisis, idx) => ({
+        x: crisis.year.toString(),
+        y: yRange[1],
+        text: crisis.label,
+        showarrow: false,
+        textangle: -45,
+        xanchor: "left",
+        yanchor: "bottom",
+        font: { size: 9, color: colors.accent },
+      })),
+    );
+  }
+
+  // Keep original peak/trough annotations
+  if (chartName === "vocabulary") {
+    annotations.push({
+      x: "1976",
+      y: 0.291,
+      text: "Peak: 1976",
+      showarrow: true,
+      arrowhead: 2,
+      ax: 30,
+      ay: -30,
+      font: { size: 10, color: colors.primary },
+    });
+  } else if (chartName === "passive") {
+    annotations.push(
+      {
+        x: "1972",
+        y: 37,
+        text: "Peak: 1972 (37%)",
+        showarrow: true,
+        arrowhead: 2,
+        ax: 30,
+        ay: -30,
+        font: { size: 10, color: colors.primary },
+      },
+      {
+        x: "2020",
+        y: 4,
+        text: "Low: 2020 (4%)",
+        showarrow: true,
+        arrowhead: 2,
+        ax: -30,
+        ay: -30,
+        font: { size: 10, color: colors.success },
+      },
+    );
+  } else if (chartName === "temporal" || chartName === "certainty") {
+    annotations.push({
+      x: "2025",
+      y: 0.5,
+      text: "Balanced",
+      showarrow: false,
+      xanchor: "right",
+      font: { size: 10, color: colors.neutral },
+    });
+  }
+
+  Plotly.relayout(chartDiv, { shapes: shapes, annotations: annotations });
 }
 
 // Render key metrics summary cards
@@ -596,6 +871,18 @@ function renderVocabularyChart() {
   }
 
   const ttrData = years.map((y) => languageData.by_year[y].ttr);
+  const ministers = years.map((y) => languageData.by_year[y].minister);
+
+  // Build custom hover text with minister and crisis info
+  const hoverText = years.map((y, i) => {
+    const crisis = CRISIS_YEARS.find((c) => c.year === parseInt(y));
+    let text = `<b>${y}</b><br>Minister: ${ministers[i]}<br>TTR: ${ttrData[
+      i
+    ].toFixed(3)}`;
+    if (crisis)
+      text += `<br><b style="color:${colors.accent}">⚠ ${crisis.label}</b>`;
+    return text;
+  });
 
   // Calculate 5-year moving average
   const movingAvgData = movingAverage(ttrData, 5);
@@ -609,7 +896,8 @@ function renderVocabularyChart() {
       mode: "lines+markers",
       line: { color: colors.primary, width: 1.5 },
       marker: { size: 5 },
-      hovertemplate: "<b>%{x}</b><br>TTR: %{y:.3f}<extra></extra>",
+      hovertemplate: "%{customdata}<extra></extra>",
+      customdata: hoverText,
     },
     {
       x: years,
@@ -622,6 +910,7 @@ function renderVocabularyChart() {
     },
   ];
 
+  // No shapes by default - use toggle controls to show overlays
   const layout = {
     xaxis: {
       title: { text: "Year", font: { size: 12 } },
@@ -636,6 +925,7 @@ function renderVocabularyChart() {
       gridcolor: colors.grid,
       range: [0.1, 0.35],
     },
+    shapes: [],
     height: 400,
     showlegend: true,
     legend: { orientation: "h", y: -0.15 },
@@ -678,7 +968,19 @@ function renderTemporalChart() {
   }
 
   const temporalData = years.map((y) => languageData.by_year[y].temporal_ratio);
+  const ministers = years.map((y) => languageData.by_year[y].minister);
   const movingAvgData = movingAverage(temporalData, 5);
+
+  // Build custom hover text with minister and crisis info
+  const hoverText = years.map((y, i) => {
+    const crisis = CRISIS_YEARS.find((c) => c.year === parseInt(y));
+    let text = `<b>${y}</b><br>Minister: ${
+      ministers[i]
+    }<br>Forward ratio: ${temporalData[i].toFixed(2)}`;
+    if (crisis)
+      text += `<br><b style="color:${colors.accent}">⚠ ${crisis.label}</b>`;
+    return text;
+  });
 
   const traces = [
     {
@@ -689,8 +991,8 @@ function renderTemporalChart() {
       mode: "lines+markers",
       line: { color: colors.success, width: 1.5 },
       marker: { size: 5 },
-      hovertemplate:
-        "<b>%{x}</b><br>Forward ratio: %{y:.2f}<br>(1=all forward, 0=all backward)<extra></extra>",
+      hovertemplate: "%{customdata}<extra></extra>",
+      customdata: hoverText,
     },
     {
       x: years,
@@ -703,7 +1005,7 @@ function renderTemporalChart() {
     },
   ];
 
-  // Add reference line at 0.5 (balanced)
+  // Reference line at 0.5 only - crisis lines added via toggle
   const shapes = [
     {
       type: "line",
@@ -767,7 +1069,19 @@ function renderCertaintyChart() {
   const certaintyData = years.map(
     (y) => languageData.by_year[y].certainty_ratio,
   );
+  const ministers = years.map((y) => languageData.by_year[y].minister);
   const movingAvgData = movingAverage(certaintyData, 5);
+
+  // Build custom hover text with minister and crisis info
+  const hoverText = years.map((y, i) => {
+    const crisis = CRISIS_YEARS.find((c) => c.year === parseInt(y));
+    let text = `<b>${y}</b><br>Minister: ${
+      ministers[i]
+    }<br>Certainty: ${certaintyData[i].toFixed(2)}`;
+    if (crisis)
+      text += `<br><b style="color:${colors.accent}">⚠ ${crisis.label}</b>`;
+    return text;
+  });
 
   const traces = [
     {
@@ -778,8 +1092,8 @@ function renderCertaintyChart() {
       mode: "lines+markers",
       line: { color: colors.warning, width: 1.5 },
       marker: { size: 5 },
-      hovertemplate:
-        "<b>%{x}</b><br>Certainty: %{y:.2f}<br>(1=confident, 0=hedging)<extra></extra>",
+      hovertemplate: "%{customdata}<extra></extra>",
+      customdata: hoverText,
     },
     {
       x: years,
@@ -792,7 +1106,7 @@ function renderCertaintyChart() {
     },
   ];
 
-  // Add reference line at 0.5 (balanced)
+  // Reference line at 0.5 only - crisis lines added via toggle
   const shapes = [
     {
       type: "line",
@@ -854,7 +1168,19 @@ function renderPassiveChart() {
   }
 
   const passiveData = years.map((y) => languageData.by_year[y].passive_ratio);
+  const ministers = years.map((y) => languageData.by_year[y].minister);
   const movingAvgData = movingAverage(passiveData, 5);
+
+  // Build custom hover text with minister and crisis info
+  const hoverText = years.map((y, i) => {
+    const crisis = CRISIS_YEARS.find((c) => c.year === parseInt(y));
+    let text = `<b>${y}</b><br>Minister: ${ministers[i]}<br>Passive: ${(
+      passiveData[i] * 100
+    ).toFixed(1)}%`;
+    if (crisis)
+      text += `<br><b style="color:${colors.accent}">⚠ ${crisis.label}</b>`;
+    return text;
+  });
 
   const traces = [
     {
@@ -865,7 +1191,8 @@ function renderPassiveChart() {
       mode: "lines+markers",
       line: { color: colors.neutral, width: 1.5 },
       marker: { size: 5 },
-      hovertemplate: "<b>%{x}</b><br>Passive: %{y:.1f}%<extra></extra>",
+      hovertemplate: "%{customdata}<extra></extra>",
+      customdata: hoverText,
     },
     {
       x: years,
@@ -878,6 +1205,7 @@ function renderPassiveChart() {
     },
   ];
 
+  // No shapes by default - use toggle controls to show overlays
   const layout = {
     xaxis: {
       title: { text: "Year", font: { size: 12 } },
@@ -889,6 +1217,7 @@ function renderPassiveChart() {
       gridcolor: colors.grid,
       range: [0, 45],
     },
+    shapes: [],
     height: 400,
     showlegend: true,
     legend: { orientation: "h", y: -0.15 },
