@@ -2114,3 +2114,317 @@ tr:hover td {
     width: 100%;
   }
 }
+
+/* ===================================
+   ENHANCED MOBILE OPTIMISATIONS
+   =================================== */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  /* Reduce section spacing */
+  :root {
+    --space-section: 3rem;
+    --space-xxl: 2rem;
+    --space-xl: 1.5rem;
+  }
+
+  /* Full-width container */
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  /* Insights grid - stack on tablet */
+  .insights-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .insight-card {
+    padding: var(--space-md);
+  }
+
+  .insight-card h4 {
+    font-size: 0.9375rem;
+  }
+
+  .insight-card p {
+    font-size: 0.875rem;
+  }
+
+  /* Metrics summary */
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .metric-card {
+    padding: var(--space-md);
+  }
+
+  .metric-value {
+    font-size: 1.75rem;
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+  }
+
+  /* Chart overlay controls */
+  .chart-overlay-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .overlay-label {
+    margin-bottom: var(--space-xs);
+  }
+
+  /* Minister legend - wrap better */
+  .minister-legend {
+    gap: var(--space-xs) var(--space-sm);
+  }
+
+  .minister-name {
+    font-size: 0.7rem;
+  }
+
+  /* Search results */
+  .result-card {
+    padding: var(--space-md);
+  }
+
+  .result-meta {
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  /* Typography scaling */
+  html {
+    font-size: 14px;
+  }
+
+  /* Page headers */
+  .page-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .page-header .subtitle {
+    font-size: 0.875rem;
+  }
+
+  /* Navigation - hamburger alternative: scrollable */
+  .nav-links {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: var(--space-xs);
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links a {
+    flex-shrink: 0;
+    font-size: 0.8125rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  /* Logo smaller */
+  .site-header .logo {
+    font-size: 1rem;
+  }
+
+  /* Metrics - single column */
+  .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metric-value {
+    font-size: 1.5rem;
+  }
+
+  /* Charts - reduce padding */
+  .chart-container {
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .chart-container h3 {
+    font-size: 1rem;
+  }
+
+  .chart-description {
+    font-size: 0.8125rem;
+    margin-bottom: var(--space-md);
+  }
+
+  /* Insight cards */
+  .insight-card {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .insight-card h4 {
+    font-size: 0.875rem;
+  }
+
+  .insight-card p {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  /* Search */
+  .search-input {
+    font-size: 16px; /* Prevents iOS zoom */
+    padding: var(--space-sm);
+  }
+
+  .search-filters {
+    gap: var(--space-xs);
+  }
+
+  .search-filters select {
+    font-size: 14px;
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  /* Touch-friendly buttons */
+  button,
+  .btn,
+  .download-button {
+    min-height: 44px; /* Apple HIG touch target */
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .site-footer p {
+    font-size: 0.8125rem;
+  }
+
+  /* Data tables - horizontal scroll */
+  .data-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #dataTable table {
+    min-width: 500px;
+    font-size: 0.75rem;
+  }
+
+  /* Chart overlay controls stacked */
+  .chart-overlay-controls {
+    padding: var(--space-xs);
+  }
+
+  .overlay-toggle {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  /* Minister legend - 2 columns */
+  .minister-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xs);
+  }
+
+  .minister-legend-item {
+    font-size: 0.65rem;
+  }
+
+  .minister-color-box {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Extra small devices (360px and below) */
+@media (max-width: 360px) {
+  html {
+    font-size: 13px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .minister-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    padding: var(--space-xs);
+  }
+}
+
+/* Landscape phone optimisations */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    padding: var(--space-lg) 0;
+  }
+
+  .page-header {
+    padding: var(--space-md) 0;
+  }
+
+  .chart-container {
+    margin-bottom: var(--space-md);
+  }
+}
+
+/* High DPI / Retina optimisations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .insight-card,
+  .metric-card,
+  .chart-container {
+    border-width: 0.5px;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .site-header,
+  .site-footer,
+  .search-box,
+  .chart-overlay-controls,
+  .download-button {
+    display: none !important;
+  }
+
+  .chart-container {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+}
