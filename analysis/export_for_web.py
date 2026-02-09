@@ -204,24 +204,40 @@ def export_yearly_overview():
     overview = {
         "by_year": {},
         "by_minister": {},
-        "insights": {
-            "readability_trend": (
-                "Readability improved from ~40 (1960s) to ~60 (2020s). "
-                "Higher scores mean easier to read."
-            ),
-            "sentence_length": (
-                "Average sentence length decreased from 28 words (1960s) to 22 words (2020s), "
-                "making speeches clearer."
-            ),
-            "most_readable": (
-                "Recent ministers use shorter sentences and simpler language "
-                "compared to earlier decades."
-            ),
-            "complex_topics": (
-                "Economic and financial topics tend to have lower readability "
-                "due to technical terminology."
-            ),
-        },
+        "insights": [
+            {
+                "title": "📉 Passive Voice Plummeted",
+                "description": (
+                    "Passive voice dropped from 37% (1972) to just 4% (2020). "
+                    "Modern ministers speak directly: 'We will raise taxes' rather than "
+                    "'Taxes will be raised.' This shift signals greater accountability."
+                ),
+            },
+            {
+                "title": "🔮 Future Focus Intensified",
+                "description": (
+                    "Forward-looking language rose from 56% (1960s) to 82%+ (2020s). "
+                    "Early speeches balanced past achievements with future plans; "
+                    "modern budgets are almost entirely aspirational."
+                ),
+            },
+            {
+                "title": "💪 Certainty Climbed",
+                "description": (
+                    "Confident language jumped from 65% (1960s) to 85%+ (1990s onwards). "
+                    "Less hedging ('may', 'perhaps'), more commitment ('will', 'must', 'ensure'). "
+                    "Government rhetoric grew more assertive as Singapore matured."
+                ),
+            },
+            {
+                "title": "📚 Vocabulary Narrowed",
+                "description": (
+                    "Type-Token Ratio peaked at 0.29 (1976) but settled around 0.17 (2010s). "
+                    "Partly due to longer speeches (more repetition), but also more standardised "
+                    "policy language replacing the varied prose of founding ministers."
+                ),
+            },
+        ],
     }
 
     # Process by year

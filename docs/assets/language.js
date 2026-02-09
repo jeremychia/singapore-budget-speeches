@@ -44,6 +44,7 @@ async function loadLanguageData() {
 
     hideLoading();
     renderMetricsSummary();
+    renderInsights();
     renderTrendChart();
     renderCorrelationChart();
     renderMinisterChart();
@@ -138,6 +139,23 @@ function renderMetricsSummary() {
             </div>
         </div>
     `;
+}
+
+// Render insights from JSON data
+function renderInsights() {
+  if (!languageData.insights || !Array.isArray(languageData.insights)) return;
+
+  const container = document.getElementById("insights");
+  container.innerHTML = languageData.insights
+    .map(
+      (insight) => `
+        <div class="insight-card">
+            <h4>${insight.title}</h4>
+            <p>${insight.description}</p>
+        </div>
+    `,
+    )
+    .join("");
 }
 
 // Chart 1: Combined trend chart with smoothed lines
