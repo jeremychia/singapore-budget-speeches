@@ -24,18 +24,13 @@ function handleUrlParameters() {
   const minister = urlParams.get("minister");
 
   if (query) {
-    document.getElementById("searchInput").value = query;
+    const searchInput = document.getElementById("searchInput");
+    searchInput.value = query;
 
     // Set minister filter if provided
     if (minister) {
-      const ministerFilter = document.getElementById("ministerFilter");
-      // Find and select the matching option
-      for (const option of ministerFilter.options) {
-        if (option.value === minister) {
-          option.selected = true;
-          break;
-        }
-      }
+      const ministerSelect = document.getElementById("ministerFilter");
+      ministerSelect.value = minister;
     }
 
     // Perform search after index loads
@@ -286,19 +281,24 @@ function calculateRelevance(text, terms) {
   return score;
 }
 
-// Topic colours for badges (civic strength palette with lighter tints for badges)
+// Topic colours for badges - consistent with topics.js TOPIC_COLORS
 const topicColors = {
+  General: { bg: "#E8E9E9", text: "#9EA2A2" },
   Defence: { bg: "#FADCDC", text: "#C8102E" },
-  Education: { bg: "#D9E4ED", text: "#0C2340" },
-  Health: { bg: "#D4E8DE", text: "#2D6A4F" },
-  Housing: { bg: "#F5ECD4", text: "#B8941A" },
-  Transport: { bg: "#D9E8EB", text: "#3D7C8C" },
-  Economy: { bg: "#DDE5ED", text: "#1A3A5C" },
   Finance: { bg: "#E5DDE7", text: "#6B4E71" },
-  "Social Services": { bg: "#F2E0D8", text: "#B45A3C" },
-  Environment: { bg: "#D4E8DE", text: "#2D6A4F" },
-  Technology: { bg: "#E5E5E5", text: "#5C5C5C" },
-  General: { bg: "#EDECEA", text: "#4A5568" },
+  "Trade Industry": { bg: "#DDE5ED", text: "#1A3A5C" },
+  Manpower: { bg: "#F2E0D8", text: "#B45A3C" },
+  Education: { bg: "#D9E4ED", text: "#0C2340" },
+  Transport: { bg: "#D9E8EB", text: "#3D7C8C" },
+  "National Development": { bg: "#F5ECD4", text: "#D4A72C" },
+  Health: { bg: "#D4E8DE", text: "#2D6A4F" },
+  "Sustainability Environment": { bg: "#DCE8DF", text: "#4A7C59" },
+  "Social Family Development": { bg: "#F7E5DC", text: "#E07B53" },
+  "Home Affairs": { bg: "#E5E5E5", text: "#5C5C5C" },
+  "Foreign Affairs": { bg: "#E2EBF0", text: "#7B9EA8" },
+  "Communications Information": { bg: "#E8E2DC", text: "#8B7355" },
+  "Culture Community Youth": { bg: "#EDE0D8", text: "#A0522D" },
+  Law: { bg: "#F0F0F0", text: "#888888" },
 };
 
 function getTopicBadge(topic) {

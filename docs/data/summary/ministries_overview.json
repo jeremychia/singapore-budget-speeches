@@ -1289,20 +1289,16 @@
   },
   "insights": [
     {
-      "title": "Defence to Development",
-      "description": "Defence averaged 25% of speeches in the 1960s-70s during nation-building, but has steadily declined to ~18% today as priorities shifted to economic and social development."
+      "title": "Most Discussed Ministry",
+      "description": "General was the most discussed topic, representing 24.14% of all policy discussions."
     },
     {
-      "title": "Green Agenda Rising",
-      "description": "Sustainability & Environment coverage jumped 5x from an average of 1.4% (1960s-2000s) to 7.6% peak in 2017, reflecting Singapore's climate commitments."
+      "title": "Policy Evolution",
+      "description": "Defence dominated early years (1960s-70s) during nation-building. Social Services surged in 2000s-2010s as Singapore matured. Environment emerged strongly in 2020s."
     },
     {
-      "title": "Healthcare's Moment",
-      "description": "Health peaked at 11.9% in 2014 (Pioneer Generation Package) — nearly 6x its historical average — marking a shift toward ageing population policies."
-    },
-    {
-      "title": "Trade Peaks in Recovery",
-      "description": "Trade & Industry hit 20.3% in 2010, its highest ever, as Singapore pivoted to economic restructuring post-Global Financial Crisis."
+      "title": "Crisis Response",
+      "description": "Economic topics spiked during 1985 recession, 1997 Asian Financial Crisis, 2008 Global Financial Crisis, and 2020 COVID-19 pandemic."
     }
   ]
 }

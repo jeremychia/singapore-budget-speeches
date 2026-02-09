@@ -268,7 +268,7 @@ def export_search_index():
                 return name
         return "Unknown"
 
-    # Topic keywords for classification
+    # Topic keywords for classification - aligned with ministry names in ministries_overview
     topic_keywords = {
         "Defence": [
             "defence",
@@ -329,7 +329,7 @@ def export_search_index():
             "pandemic",
             "covid",
         ],
-        "Housing": [
+        "National Development": [
             "housing",
             "hdb",
             "flat",
@@ -343,6 +343,11 @@ def export_search_index():
             "rental",
             "estate",
             "neighbourhood",
+            "urban",
+            "land use",
+            "planning",
+            "ura",
+            "development",
         ],
         "Transport": [
             "transport",
@@ -367,7 +372,7 @@ def export_search_index():
             "ccl",
             "tel",
         ],
-        "Economy": [
+        "Trade Industry": [
             "economy",
             "economic",
             "gdp",
@@ -392,6 +397,7 @@ def export_search_index():
             "wages",
             "productivity",
             "competitiveness",
+            "mti",
         ],
         "Finance": [
             "tax",
@@ -413,7 +419,7 @@ def export_search_index():
             "stamp duty",
             "iras",
         ],
-        "Social Services": [
+        "Social Family Development": [
             "social",
             "welfare",
             "comcare",
@@ -432,8 +438,9 @@ def export_search_index():
             "workfare",
             "gst voucher",
             "cdc voucher",
+            "msf",
         ],
-        "Environment": [
+        "Sustainability Environment": [
             "environment",
             "climate",
             "sustainability",
@@ -452,8 +459,9 @@ def export_search_index():
             "nature",
             "parks",
             "gardens",
+            "mse",
         ],
-        "Technology": [
+        "Communications Information": [
             "technology",
             "digital",
             "innovation",
@@ -471,6 +479,62 @@ def export_search_index():
             "automation",
             "robotics",
             "internet",
+            "mci",
+            "imda",
+        ],
+        "Manpower": [
+            "workforce",
+            "workers",
+            "foreign workers",
+            "levy",
+            "mom",
+            "labour",
+            "labor",
+            "skills",
+            "retraining",
+        ],
+        "Home Affairs": [
+            "police",
+            "spf",
+            "scdf",
+            "civil defence",
+            "fire",
+            "emergency",
+            "crime",
+            "law enforcement",
+            "mha",
+            "immigration",
+            "ica",
+            "prisons",
+        ],
+        "Foreign Affairs": [
+            "foreign",
+            "diplomacy",
+            "asean",
+            "international",
+            "bilateral",
+            "embassy",
+            "mfa",
+            "treaty",
+        ],
+        "Culture Community Youth": [
+            "culture",
+            "arts",
+            "heritage",
+            "sports",
+            "community",
+            "mccy",
+            "nac",
+            "museum",
+            "national day",
+        ],
+        "Law": [
+            "legal",
+            "courts",
+            "judiciary",
+            "minlaw",
+            "attorney",
+            "legislation",
         ],
     }
 
@@ -523,22 +587,28 @@ def export_search_index():
 
     print(f"  📝 Extracted {len(all_sentences):,} sentences from {len(parquet_files)} speeches")
 
-    # Create overview
+    # Create overview - aligned with ministries_overview.json
     overview = {
         "total_sentences": len(all_sentences),
         "years": sorted(list(set(s["year"] for s in all_sentences))),
         "decades": ["1960s", "1970s", "1980s", "1990s", "2000s", "2010s", "2020s"],
         "topics": [
+            "General",
             "Defence",
-            "Education",
-            "Health",
-            "Housing",
-            "Transport",
-            "Economy",
             "Finance",
-            "Social Services",
-            "Environment",
-            "Technology",
+            "Trade Industry",
+            "Manpower",
+            "Education",
+            "Transport",
+            "National Development",
+            "Health",
+            "Sustainability Environment",
+            "Social Family Development",
+            "Home Affairs",
+            "Foreign Affairs",
+            "Communications Information",
+            "Culture Community Youth",
+            "Law",
         ],
     }
 
