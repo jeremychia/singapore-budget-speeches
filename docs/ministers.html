@@ -1,83 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Finance Ministers Comparison | SG Budget (1960-2025)</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css" />
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="site-header">
-        <nav class="container">
-            <h1 class="logo">SG Budget Speeches</h1>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="search.html">Search</a></li>
-                <li><a href="ministries.html">Ministries</a></li>
-                <li><a href="ministers.html" class="active">Ministers</a></li>
-                <li><a href="language.html">Language</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+      <nav class="container">
+        <h1 class="logo">SG Budget Speeches</h1>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="ministers.html" class="active">Ministers</a></li>
+          <li><a href="language.html">Language</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main class="container">
-        <section class="page-header">
-            <h2>Ten Finance Ministers</h2>
-            <p class="subtitle">65 years of fiscal stewardship: from Goh Keng Swee (1960) to Lawrence Wong (2025)</p>
-        </section>
+      <section class="page-header">
+        <h2>Ten Finance Ministers</h2>
+        <p class="subtitle">
+          65 years of fiscal stewardship: from Goh Keng Swee (1960) to Lawrence
+          Wong (2025)
+        </p>
+      </section>
 
-        <section id="loading" class="loading-state">
-            <div class="spinner"></div>
-            <p>Loading minister statistics...</p>
-        </section>
+      <section id="loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading minister statistics...</p>
+      </section>
 
-        <section id="content" class="content-area" style="display: none;">
-            <!-- Key metrics summary -->
-            <div id="metricsSummary" class="metrics-summary"></div>
+      <section id="content" class="content-area" style="display: none">
+        <!-- Key metrics summary -->
+        <div id="metricsSummary" class="metrics-summary"></div>
 
-            <!-- Visual timeline (Gantt-style) -->
-            <div class="chart-container">
-                <h3>Ministerial Timeline</h3>
-                <p class="chart-description">Tenure spans of Singapore's Finance Ministers, coloured by era</p>
-                <div id="timelineChart"></div>
-            </div>
+        <!-- Visual timeline (Gantt-style) -->
+        <div class="chart-container">
+          <h3>Ministerial Timeline</h3>
+          <p class="chart-description">
+            Tenure spans of Singapore's Finance Ministers, coloured by era
+          </p>
+          <div id="timelineChart"></div>
+        </div>
 
-            <!-- Two-column chart grid -->
-            <div class="chart-grid">
-                <div class="chart-container">
-                    <h3>Output Comparison</h3>
-                    <p class="chart-description">Total sentences delivered during tenure</p>
-                    <div id="outputChart"></div>
-                </div>
+        <!-- Two-column chart grid -->
+        <div class="chart-grid">
+          <div class="chart-container">
+            <h3>Output Comparison</h3>
+            <p class="chart-description">
+              Total sentences delivered during tenure
+            </p>
+            <div id="outputChart"></div>
+          </div>
 
-                <div class="chart-container">
-                    <h3>Communication Style</h3>
-                    <p class="chart-description">Readability vs sentence complexity</p>
-                    <div id="styleChart"></div>
-                </div>
-            </div>
+          <div class="chart-container">
+            <h3>Communication Style</h3>
+            <p class="chart-description">Readability vs sentence complexity</p>
+            <div id="styleChart"></div>
+          </div>
+        </div>
 
-            <!-- Policy focus heatmap -->
-            <div class="chart-container">
-                <h3>Policy Focus by Minister</h3>
-                <p class="chart-description">Percentage of sentences mentioning each ministry area (normalised by tenure)</p>
-                <div id="topicsHeatmap"></div>
-            </div>
+        <!-- Policy focus heatmap -->
+        <div class="chart-container">
+          <h3>Policy Focus by Minister</h3>
+          <p class="chart-description">
+            Percentage of sentences mentioning each ministry area (normalised by
+            tenure)
+          </p>
+          <div id="topicsHeatmap"></div>
+        </div>
 
-            <!-- Minister profile cards -->
-            <div class="minister-profiles" id="ministerProfiles"></div>
-        </section>
+        <!-- Minister profile cards -->
+        <div class="minister-profiles" id="ministerProfiles"></div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <p>Data Source: <a href="https://sprs.parl.gov.sg/" target="_blank">Singapore Parliament Hansard</a> (1960-2025)</p>
-            <p><a href="https://github.com/jeremychia/singapore-budget-speeches" target="_blank">View on GitHub</a></p>
-        </div>
+      <div class="container">
+        <p>
+          Data Source:
+          <a href="https://sprs.parl.gov.sg/" target="_blank"
+            >Singapore Parliament Hansard</a
+          >
+          (1960-2025)
+        </p>
+        <p>
+          <a
+            href="https://github.com/jeremychia/singapore-budget-speeches"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </p>
+      </div>
     </footer>
 
     <script src="assets/ministers.js"></script>
-</body>
+  </body>
 </html>

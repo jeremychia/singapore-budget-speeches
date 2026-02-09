@@ -3,7 +3,7 @@ Main processor for batch processing speeches (one parquet per year)
 """
 
 import logging
-from parser import SpeechParser
+from parser import SpeechParser  # type: ignore[attr-defined]
 from pathlib import Path
 from typing import List, Optional
 
@@ -75,7 +75,8 @@ def process_speeches(
             # Check if file already exists
             if output_file.exists() and not force:
                 logger.info(
-                    f"{i:2d}/{len(files)}: {file_path.name} - File already exists, skipping (use --force to overwrite)"
+                    f"{i:2d}/{len(files)}: {file_path.name} - "
+                    "File already exists, skipping (use --force to overwrite)"
                 )
                 skipped += 1
                 continue
@@ -135,8 +136,8 @@ def process_speeches(
 # Keep backward compatibility with old function name
 def process_all_speeches(
     markdown_dir: str = "output_markdown",
-    output_csv: str = "output_processor/budget_speeches.csv",  # Ignored, kept for compatibility
-    output_parquet: str = "output_processor/budget_speeches.parquet",  # Ignored, kept for compatibility
+    output_csv: str = "output_processor/budget_speeches.csv",  # Ignored for compat
+    output_parquet: str = "output_processor/budget_speeches.parquet",  # Ignored
     years: Optional[List[int]] = None,
 ) -> pd.DataFrame:
     """

@@ -5,7 +5,7 @@ Main entry point for running the processor
 import argparse
 import logging
 
-from processor import process_speeches
+from processor import process_speeches  # type: ignore[attr-defined]
 
 
 def main():
@@ -19,13 +19,15 @@ def main():
 
     # Parse arguments
     parser = argparse.ArgumentParser(
-        description="Process Singapore budget speech markdown files into parquet (one file per year)"
+        description="Process Singapore budget speech markdown files into parquet "
+        "(one file per year)"
     )
     parser.add_argument(
         "--years",
         type=int,
         nargs="+",
-        help="Specific years to process (e.g., --years 2025 2026). If not provided, processes all available files.",
+        help="Specific years to process (e.g., --years 2025 2026). "
+        "If not provided, processes all available files.",
     )
     parser.add_argument(
         "--force",

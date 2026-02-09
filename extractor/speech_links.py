@@ -199,7 +199,8 @@ budget_speech_links: Dict[int, Dict[str, Any]] = {
     },
     1988: {
         "hansard": "https://sprs.parl.gov.sg/search/#/topic?reportid=012_19880304_S0003_T0006",
-        "notes": "Speech was incomplete, and needed to be supplemented with text from the day's sitting.",
+        "notes": "Speech was incomplete, and needed to be supplemented with "
+        "text from the day's sitting.",
         "date": "1988-03-04",
         "minister": "Dr Richard Hu Tsu Tau",
         "fiscal_year_start": "1988-04-01",

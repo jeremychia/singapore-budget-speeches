@@ -1,69 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Policy Evolution by Ministry | SG Budget (1960-2025)</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css" />
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="site-header">
-        <nav class="container">
-            <h1 class="logo">SG Budget Speeches</h1>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="search.html">Search</a></li>
-                <li><a href="ministries.html" class="active">Ministries</a></li>
-                <li><a href="ministers.html">Ministers</a></li>
-                <li><a href="language.html">Language</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+      <nav class="container">
+        <h1 class="logo">SG Budget Speeches</h1>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="ministries.html" class="active">Ministries</a></li>
+          <li><a href="ministers.html">Ministers</a></li>
+          <li><a href="language.html">Language</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main class="container">
-        <section class="page-header">
-            <h2>How Priorities Shifted</h2>
-            <p class="subtitle">Policy evolution through 65 years of budget speeches</p>
-        </section>
+      <section class="page-header">
+        <h2>How Priorities Shifted</h2>
+        <p class="subtitle">
+          Policy evolution through 65 years of budget speeches
+        </p>
+      </section>
 
-        <section id="loading" class="loading-state">
-            <div class="spinner"></div>
-            <p>Loading ministry statistics...</p>
-        </section>
+      <section id="loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading ministry statistics...</p>
+      </section>
 
-        <section id="content" class="content-area" style="display: none;">
-            <div class="chart-container">
-                <h3>Ministry Coverage Over Time</h3>
-                <div id="ministriesOverTimeChart"></div>
-            </div>
+      <section id="content" class="content-area" style="display: none">
+        <div class="chart-container">
+          <h3>Ministry Coverage Over Time</h3>
+          <div id="ministriesOverTimeChart"></div>
+        </div>
 
-            <div class="chart-container">
-                <h3>Top 10 Ministries by Total Coverage</h3>
-                <div id="ministriesByTotalChart"></div>
-            </div>
+        <div class="chart-container">
+          <h3>Top 10 Ministries by Total Coverage</h3>
+          <div id="ministriesByTotalChart"></div>
+        </div>
 
-            <div class="insights-section">
-                <h3>Key Insights</h3>
-                <div id="insights" class="insights-grid"></div>
-            </div>
+        <div class="insights-section">
+          <h3>Key Insights</h3>
+          <div id="insights" class="insights-grid"></div>
+        </div>
 
-            <div class="data-table-container">
-                <h3>Full Data</h3>
-                <button id="downloadCSV" class="download-button">Download CSV</button>
-                <div id="dataTable"></div>
-            </div>
-        </section>
+        <div class="data-table-container">
+          <h3>Full Data</h3>
+          <button id="downloadCSV" class="download-button">Download CSV</button>
+          <div id="dataTable"></div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <p>Data Source: <a href="https://sprs.parl.gov.sg/" target="_blank">Singapore Parliament Hansard</a> (1960-2025)</p>
-            <p><a href="https://github.com/jeremychia/singapore-budget-speeches" target="_blank">View on GitHub</a></p>
-        </div>
+      <div class="container">
+        <p>
+          Data Source:
+          <a href="https://sprs.parl.gov.sg/" target="_blank"
+            >Singapore Parliament Hansard</a
+          >
+          (1960-2025)
+        </p>
+        <p>
+          <a
+            href="https://github.com/jeremychia/singapore-budget-speeches"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </p>
+      </div>
     </footer>
 
     <script src="assets/ministries.js"></script>
-</body>
+  </body>
 </html>

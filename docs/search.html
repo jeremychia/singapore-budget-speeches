@@ -1,114 +1,146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search Budget Speeches | SG Budget (1960-2025)</title>
-    <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
     <header class="site-header">
-        <nav class="container">
-            <h1 class="logo">SG Budget Speeches</h1>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="search.html" class="active">Search</a></li>
-                <li><a href="ministries.html">Ministries</a></li>
-                <li><a href="ministers.html">Ministers</a></li>
-                <li><a href="language.html">Language</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+      <nav class="container">
+        <h1 class="logo">SG Budget Speeches</h1>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html" class="active">Search</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="ministers.html">Ministers</a></li>
+          <li><a href="language.html">Language</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main class="container">
-        <section class="search-section">
-            <h2>Search 40,000+ Sentences</h2>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="e.g., healthcare, GST, sustainability...">
-                <button id="searchButton">Search</button>
-            </div>
-            <div class="search-filters">
-                <div class="filter-group">
-                    <label>Time Period:</label>
-                    <select id="decadeFilter">
-                        <option value="">All Years (1960-2025)</option>
-                        <option value="1960s">1960s</option>
-                        <option value="1970s">1970s</option>
-                        <option value="1980s">1980s</option>
-                        <option value="1990s">1990s</option>
-                        <option value="2000s">2000s</option>
-                        <option value="2010s">2010s</option>
-                        <option value="2020s">2020s</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Minister:</label>
-                    <select id="ministerFilter">
-                        <option value="">All Ministers</option>
-                        <option value="Goh Keng Swee">Goh Keng Swee (1960–1970)</option>
-                        <option value="Lim Kim San">Lim Kim San (1966–1967)</option>
-                        <option value="Hon Sui Sen">Hon Sui Sen (1971–1978)</option>
-                        <option value="Goh Chok Tong">Goh Chok Tong (1979–1981)</option>
-                        <option value="Dr Tony Tan Keng Yam">Tony Tan (1982–1985)</option>
-                        <option value="Dr Richard Hu Tsu Tau">Richard Hu (1986–2001)</option>
-                        <option value="Lee Hsien Loong">Lee Hsien Loong (2002–2006)</option>
-                        <option value="Tharman Shanmugaratnam">Tharman Shanmugaratnam (2007–2015)</option>
-                        <option value="Heng Swee Keat">Heng Swee Keat (2016–2021)</option>
-                        <option value="Lawrence Wong">Lawrence Wong (2022–2026)</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Topic:</label>
-                    <select id="topicFilter">
-                        <option value="">All Topics</option>
-                        <option value="Defence">Defence</option>
-                        <option value="Education">Education</option>
-                        <option value="Health">Health</option>
-                        <option value="Housing">Housing</option>
-                        <option value="Transport">Transport</option>
-                        <option value="Economy">Economy</option>
-                        <option value="Finance">Finance</option>
-                        <option value="Social Services">Social Services</option>
-                        <option value="Environment">Environment</option>
-                        <option value="Technology">Technology</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label>Sort By:</label>
-                    <select id="sortFilter">
-                        <option value="relevance">Relevance</option>
-                        <option value="year-desc">Year (Newest First)</option>
-                        <option value="year-asc">Year (Oldest First)</option>
-                        <option value="minister">Minister</option>
-                        <option value="topic">Topic</option>
-                    </select>
-                </div>
-            </div>
-            <div id="searchStatus" class="search-status"></div>
-            <div id="searchResults" class="search-results"></div>
-        </section>
+      <section class="search-section">
+        <h2>Search 40,000+ Sentences</h2>
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="e.g., healthcare, GST, sustainability..."
+          />
+          <button id="searchButton">Search</button>
+        </div>
+        <div class="search-filters">
+          <div class="filter-group">
+            <label>Time Period:</label>
+            <select id="decadeFilter">
+              <option value="">All Years (1960-2025)</option>
+              <option value="1960s">1960s</option>
+              <option value="1970s">1970s</option>
+              <option value="1980s">1980s</option>
+              <option value="1990s">1990s</option>
+              <option value="2000s">2000s</option>
+              <option value="2010s">2010s</option>
+              <option value="2020s">2020s</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Minister:</label>
+            <select id="ministerFilter">
+              <option value="">All Ministers</option>
+              <option value="Goh Keng Swee">Goh Keng Swee (1960–1970)</option>
+              <option value="Lim Kim San">Lim Kim San (1966–1967)</option>
+              <option value="Hon Sui Sen">Hon Sui Sen (1971–1978)</option>
+              <option value="Goh Chok Tong">Goh Chok Tong (1979–1981)</option>
+              <option value="Dr Tony Tan Keng Yam">Tony Tan (1982–1985)</option>
+              <option value="Dr Richard Hu Tsu Tau">
+                Richard Hu (1986–2001)
+              </option>
+              <option value="Lee Hsien Loong">
+                Lee Hsien Loong (2002–2006)
+              </option>
+              <option value="Tharman Shanmugaratnam">
+                Tharman Shanmugaratnam (2007–2015)
+              </option>
+              <option value="Heng Swee Keat">Heng Swee Keat (2016–2021)</option>
+              <option value="Lawrence Wong">Lawrence Wong (2022–2026)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Topic:</label>
+            <select id="topicFilter">
+              <option value="">All Topics</option>
+              <option value="Defence">Defence</option>
+              <option value="Education">Education</option>
+              <option value="Health">Health</option>
+              <option value="Housing">Housing</option>
+              <option value="Transport">Transport</option>
+              <option value="Economy">Economy</option>
+              <option value="Finance">Finance</option>
+              <option value="Social Services">Social Services</option>
+              <option value="Environment">Environment</option>
+              <option value="Technology">Technology</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Sort By:</label>
+            <select id="sortFilter">
+              <option value="relevance">Relevance</option>
+              <option value="year-desc">Year (Newest First)</option>
+              <option value="year-asc">Year (Oldest First)</option>
+              <option value="minister">Minister</option>
+              <option value="topic">Topic</option>
+            </select>
+          </div>
+        </div>
+        <div id="searchStatus" class="search-status"></div>
+        <div id="searchResults" class="search-results"></div>
+      </section>
 
-        <section class="search-hints">
-            <h3>Try These</h3>
-            <div class="hint-buttons">
-                <button class="hint-button" data-query="climate change">Climate Change</button>
-                <button class="hint-button" data-query="economic crisis">Economic Crisis</button>
-                <button class="hint-button" data-query="CPF">CPF</button>
-                <button class="hint-button" data-query="healthcare">Healthcare</button>
-                <button class="hint-button" data-query="productivity">Productivity</button>
-                <button class="hint-button" data-query="innovation">Innovation</button>
-            </div>
-        </section>
+      <section class="search-hints">
+        <h3>Try These</h3>
+        <div class="hint-buttons">
+          <button class="hint-button" data-query="climate change">
+            Climate Change
+          </button>
+          <button class="hint-button" data-query="economic crisis">
+            Economic Crisis
+          </button>
+          <button class="hint-button" data-query="CPF">CPF</button>
+          <button class="hint-button" data-query="healthcare">
+            Healthcare
+          </button>
+          <button class="hint-button" data-query="productivity">
+            Productivity
+          </button>
+          <button class="hint-button" data-query="innovation">
+            Innovation
+          </button>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <p>Data Source: <a href="https://sprs.parl.gov.sg/" target="_blank">Singapore Parliament Hansard</a> (1960-2025)</p>
-            <p><a href="https://github.com/jeremychia/singapore-budget-speeches" target="_blank">View on GitHub</a></p>
-        </div>
+      <div class="container">
+        <p>
+          Data Source:
+          <a href="https://sprs.parl.gov.sg/" target="_blank"
+            >Singapore Parliament Hansard</a
+          >
+          (1960-2025)
+        </p>
+        <p>
+          <a
+            href="https://github.com/jeremychia/singapore-budget-speeches"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </p>
+      </div>
     </footer>
 
     <script src="assets/search.js"></script>
-</body>
+  </body>
 </html>

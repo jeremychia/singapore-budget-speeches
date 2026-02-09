@@ -106,7 +106,8 @@ def main():
         "--years",
         type=int,
         nargs="+",
-        help="Specific years to process (e.g., --years 2025 2026). If not provided, processes all years.",
+        help="Specific years to process (e.g., --years 2025 2026). "
+        "If not provided, processes all years.",
     )
     parser.add_argument(
         "--force",

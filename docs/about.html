@@ -1,97 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About This Project | SG Budget (1960-2025)</title>
-    <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
     <header class="site-header">
-        <nav class="container">
-            <h1 class="logo">SG Budget Speeches</h1>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="search.html">Search</a></li>
-                <li><a href="ministries.html">Ministries</a></li>
-                <li><a href="ministers.html">Ministers</a></li>
-                <li><a href="language.html">Language</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-            </ul>
-        </nav>
+      <nav class="container">
+        <h1 class="logo">SG Budget Speeches</h1>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="ministers.html">Ministers</a></li>
+          <li><a href="language.html">Language</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main class="container">
-        <section class="about-content">
-            <h2>About This Project</h2>
+      <section class="about-content">
+        <h2>About This Project</h2>
 
-            <div class="about-section">
-                <h3>What is this?</h3>
-                <p>
-                    Every year since 1960, Singapore's Finance Minister delivers a Budget Speech outlining
-                    the government's fiscal priorities. This project analyses 65 years of these speeches
-                    to reveal how Singapore's policy focus evolved from post-independence survival to
-                    sustainability leadership.
-                </p>
-            </div>
+        <div class="about-section">
+          <h3>What is this?</h3>
+          <p>
+            Every year since 1960, Singapore's Finance Minister delivers a
+            Budget Speech outlining the government's fiscal priorities. This
+            project analyses 65 years of these speeches to reveal how
+            Singapore's policy focus evolved from post-independence survival to
+            sustainability leadership.
+          </p>
+        </div>
 
-            <div class="about-section">
-                <h3>The Data</h3>
-                <ul>
-                    <li><strong>66 speeches</strong> from 1960 to 2025</li>
-                    <li><strong>39,704 sentences</strong> analysed</li>
-                    <li><strong>10 Finance Ministers:</strong> Goh Keng Swee, Lim Kim San, Hon Sui Sen, Goh Chok Tong,
-                        Richard Hu, Tony Tan, Lee Hsien Loong, Tharman Shanmugaratnam, Heng Swee Keat, Lawrence Wong</li>
-                    <li><strong>Data Source:</strong> <a href="https://sprs.parl.gov.sg/" target="_blank">
-                        Singapore Parliament Hansard</a></li>
-                </ul>
-            </div>
+        <div class="about-section">
+          <h3>The Data</h3>
+          <ul>
+            <li><strong>66 speeches</strong> from 1960 to 2025</li>
+            <li><strong>39,704 sentences</strong> analysed</li>
+            <li>
+              <strong>10 Finance Ministers:</strong> Goh Keng Swee, Lim Kim San,
+              Hon Sui Sen, Goh Chok Tong, Richard Hu, Tony Tan, Lee Hsien Loong,
+              Tharman Shanmugaratnam, Heng Swee Keat, Lawrence Wong
+            </li>
+            <li>
+              <strong>Data Source:</strong>
+              <a href="https://sprs.parl.gov.sg/" target="_blank">
+                Singapore Parliament Hansard</a
+              >
+            </li>
+          </ul>
+        </div>
 
-            <div class="about-section">
-                <h3>Methodology</h3>
-                <p>
-                    Speeches were extracted from PDF Hansard reports, parsed into sentences, and
-                    classified by topic using pattern matching. Linguistic metrics (readability,
-                    sentence length) were calculated using standard NLP methods. All code is
-                    open-source.
-                </p>
-            </div>
+        <div class="about-section">
+          <h3>Methodology</h3>
+          <p>
+            Speeches were extracted from PDF Hansard reports, parsed into
+            sentences, and classified by topic using pattern matching.
+            Linguistic metrics (readability, sentence length) were calculated
+            using standard NLP methods. All code is open-source.
+          </p>
+        </div>
 
-            <div class="about-section">
-                <h3>Key Findings</h3>
-                <ul>
-                    <li><strong>Policy Evolution:</strong> Defence dominated in the 1960s-70s (survival),
-                        Social Services surged in the 2000s-10s (maturity), Environment/Sustainability
-                        emerged in the 2020s</li>
-                    <li><strong>Crisis Response:</strong> Economic topics spiked during 1985 recession,
-                        1997 Asian Financial Crisis, 2008 Global Financial Crisis, and 2020 COVID-19</li>
-                    <li><strong>Linguistic Trends:</strong> Speeches became more readable over time
-                        (Flesch score increased from ~40 in 1960s to ~60 in 2020s), with shorter
-                        sentences and clearer language</li>
-                </ul>
-            </div>
+        <div class="about-section">
+          <h3>Key Findings</h3>
+          <ul>
+            <li>
+              <strong>Policy Evolution:</strong> Defence dominated in the
+              1960s-70s (survival), Social Services surged in the 2000s-10s
+              (maturity), Environment/Sustainability emerged in the 2020s
+            </li>
+            <li>
+              <strong>Crisis Response:</strong> Economic topics spiked during
+              1985 recession, 1997 Asian Financial Crisis, 2008 Global Financial
+              Crisis, and 2020 COVID-19
+            </li>
+            <li>
+              <strong>Linguistic Trends:</strong> Speeches became more readable
+              over time (Flesch score increased from ~40 in 1960s to ~60 in
+              2020s), with shorter sentences and clearer language
+            </li>
+          </ul>
+        </div>
 
-            <div class="about-section">
-                <h3>Download the Data</h3>
-                <p>All datasets used in this project are available for download:</p>
-                <ul>
-                    <li><a href="data/summary/ministries_overview.json" download>Ministry Statistics (JSON)</a></li>
-                    <li><a href="data/summary/ministers_overview.json" download>Minister Statistics (JSON)</a></li>
-                    <li><a href="data/summary/yearly_overview.json" download>Yearly Statistics (JSON)</a></li>
-                    <li><a href="https://github.com/jeremychia/singapore-budget-speeches/tree/main/analysis" target="_blank">
-                        Raw CSV Files (GitHub)</a></li>
-                </ul>
-            </div>
-        </section>
+        <div class="about-section">
+          <h3>Download the Data</h3>
+          <p>All datasets used in this project are available for download:</p>
+          <ul>
+            <li>
+              <a href="data/summary/ministries_overview.json" download
+                >Ministry Statistics (JSON)</a
+              >
+            </li>
+            <li>
+              <a href="data/summary/ministers_overview.json" download
+                >Minister Statistics (JSON)</a
+              >
+            </li>
+            <li>
+              <a href="data/summary/yearly_overview.json" download
+                >Yearly Statistics (JSON)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/jeremychia/singapore-budget-speeches/tree/main/analysis"
+                target="_blank"
+              >
+                Raw CSV Files (GitHub)</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <p>Data Source: <a href="https://sprs.parl.gov.sg/" target="_blank">Singapore Parliament Hansard</a> (1960-2025)</p>
-            <p><a href="https://github.com/jeremychia/singapore-budget-speeches" target="_blank">View on GitHub</a></p>
-        </div>
+      <div class="container">
+        <p>
+          Data Source:
+          <a href="https://sprs.parl.gov.sg/" target="_blank"
+            >Singapore Parliament Hansard</a
+          >
+          (1960-2025)
+        </p>
+        <p>
+          <a
+            href="https://github.com/jeremychia/singapore-budget-speeches"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </p>
+      </div>
     </footer>
 
     <script src="assets/app.js"></script>
-</body>
+  </body>
 </html>

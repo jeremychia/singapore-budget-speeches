@@ -1,79 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Language Analysis | SG Budget (1960-2025)</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css" />
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="site-header">
-        <nav class="container">
-            <h1 class="logo">SG Budget Speeches</h1>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="search.html">Search</a></li>
-                <li><a href="ministries.html">Ministries</a></li>
-                <li><a href="ministers.html">Ministers</a></li>
-                <li><a href="language.html" class="active">Language</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+      <nav class="container">
+        <h1 class="logo">SG Budget Speeches</h1>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="ministries.html">Ministries</a></li>
+          <li><a href="ministers.html">Ministers</a></li>
+          <li><a href="language.html" class="active">Language</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main class="container">
-        <section class="page-header">
-            <h2>How Clear Are Budget Speeches?</h2>
-            <p class="subtitle">Analysing 66 years of readability, sentence complexity, and linguistic evolution</p>
-        </section>
+      <section class="page-header">
+        <h2>How Clear Are Budget Speeches?</h2>
+        <p class="subtitle">
+          Analysing 66 years of readability, sentence complexity, and linguistic
+          evolution
+        </p>
+      </section>
 
-        <section id="loading" class="loading-state">
-            <div class="spinner"></div>
-            <p>Loading language statistics...</p>
-        </section>
+      <section id="loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading language statistics...</p>
+      </section>
 
-        <section id="content" class="content-area" style="display: none;">
-            <!-- Key Metrics Summary -->
-            <div class="metrics-summary" id="metricsSummary"></div>
+      <section id="content" class="content-area" style="display: none">
+        <!-- Key Metrics Summary -->
+        <div class="metrics-summary" id="metricsSummary"></div>
 
-            <!-- Combined trend chart -->
-            <div class="chart-container">
-                <h3>Language Complexity Over Time</h3>
-                <p class="chart-description">How readability and sentence length have evolved across 66 budget speeches</p>
-                <div id="trendChart"></div>
-            </div>
+        <!-- Combined trend chart -->
+        <div class="chart-container">
+          <h3>Language Complexity Over Time</h3>
+          <p class="chart-description">
+            How readability and sentence length have evolved across 66 budget
+            speeches
+          </p>
+          <div id="trendChart"></div>
+        </div>
 
-            <!-- Correlation scatter plot -->
-            <div class="chart-container">
-                <h3>Readability vs Sentence Length</h3>
-                <p class="chart-description">Each point is a budget speech. Shorter sentences tend to score higher on readability.</p>
-                <div id="correlationChart"></div>
-            </div>
+        <!-- Correlation scatter plot -->
+        <div class="chart-container">
+          <h3>Readability vs Sentence Length</h3>
+          <p class="chart-description">
+            Each point is a budget speech. Shorter sentences tend to score
+            higher on readability.
+          </p>
+          <div id="correlationChart"></div>
+        </div>
 
-            <!-- Minister comparison - horizontal lollipop -->
-            <div class="chart-container">
-                <h3>Readability by Finance Minister</h3>
-                <p class="chart-description">Ministers ordered chronologically. Dashed line shows the overall average.</p>
-                <div id="ministerChart"></div>
-            </div>
+        <!-- Minister comparison - horizontal lollipop -->
+        <div class="chart-container">
+          <h3>Readability by Finance Minister</h3>
+          <p class="chart-description">
+            Ministers ordered chronologically. Dashed line shows the overall
+            average.
+          </p>
+          <div id="ministerChart"></div>
+        </div>
 
-            <!-- Decade comparison -->
-            <div class="chart-container">
-                <h3>Language Evolution by Decade</h3>
-                <p class="chart-description">Box plots showing the distribution of readability scores within each decade</p>
-                <div id="decadeChart"></div>
-            </div>
-        </section>
+        <!-- Decade comparison -->
+        <div class="chart-container">
+          <h3>Language Evolution by Decade</h3>
+          <p class="chart-description">
+            Box plots showing the distribution of readability scores within each
+            decade
+          </p>
+          <div id="decadeChart"></div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <p>Data Source: <a href="https://sprs.parl.gov.sg/" target="_blank">Singapore Parliament Hansard</a> (1960-2025)</p>
-            <p><a href="https://github.com/jeremychia/singapore-budget-speeches" target="_blank">View on GitHub</a></p>
-        </div>
+      <div class="container">
+        <p>
+          Data Source:
+          <a href="https://sprs.parl.gov.sg/" target="_blank"
+            >Singapore Parliament Hansard</a
+          >
+          (1960-2025)
+        </p>
+        <p>
+          <a
+            href="https://github.com/jeremychia/singapore-budget-speeches"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </p>
+      </div>
     </footer>
 
     <script src="assets/language.js"></script>
-</body>
+  </body>
 </html>

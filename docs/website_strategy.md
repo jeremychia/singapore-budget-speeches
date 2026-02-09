@@ -76,7 +76,7 @@ Index → Featured Insight → Minister Profile → Crisis Response → Key Quot
 
 **Journey:**
 ```
-Index → Ministries (see trends) → Click 2015 → See Heng's social policy focus 
+Index → Ministries (see trends) → Click 2015 → See Heng's social policy focus
 → Ministers page → Compare Heng vs Tharman → Language page → See complexity decline
 ```
 
@@ -566,21 +566,21 @@ What changed? Not just complexity—entire vocabulary shifted.
 • Style: Directive, economical
 
 1980s-1990s: Technical Sophistication
-"The restructuring of our economy necessitates comprehensive 
+"The restructuring of our economy necessitates comprehensive
 manpower development strategies."
 • Avg: 20.8 words/sentence
 • Flesch: 56.2 (fairly difficult)
 • Style: Bureaucratic, policy-heavy
 
 2000s-2010s: Inclusive Complexity
-"We will enhance support for lower-income families through 
+"We will enhance support for lower-income families through
 Workfare and healthcare subsidies."
 • Avg: 19.4 words/sentence
 • Flesch: 54.1 (fairly difficult)
 • Style: Empathetic, multi-clause
 
 2020s: Data-Driven Narratives
-"Building on our Green Plan 2030, we will accelerate our 
+"Building on our Green Plan 2030, we will accelerate our
 net-zero transition."
 • Avg: 18.1 words/sentence
 • Flesch: 52.8 (fairly difficult)
@@ -625,10 +625,10 @@ Three Ways to Explore:
 
 1. The Storyteller (5 min): Get the highlights
    → Start at homepage → "Start the Story" card
-   
+
 2. The Explorer (15 min): Understand patterns
    → Interactive charts → Click data points
-   
+
 3. The Researcher (30+ min): Deep dive into data
    → Full statistics → Download CSVs
 ```
@@ -657,7 +657,7 @@ Raw PDF → Markdown → Sentence Parsing → Classification → Analysis
 ```
 Approach: Weighted keyword matching
 
-Each ministry has 10-30 keywords (e.g., Defence: "defence", 
+Each ministry has 10-30 keywords (e.g., Defence: "defence",
 "military", "saf", "national service")
 
 Multi-word keywords get higher weights:
@@ -675,7 +675,7 @@ Accuracy: 82.7% of sentences classified to specific ministries
 Metrics Calculated:
 • Flesch Reading Ease Score
   Formula: 206.835 - 1.015(words/sentence) - 84.6(syllables/word)
-  
+
 • Average sentence length (words)
 • Average word complexity (syllables)
 • Vocabulary diversity (unique words per 100 words)
@@ -765,7 +765,7 @@ License: MIT (code) | Data from public government sources
 ```html
 <!-- Level 1: Narrative -->
 <div class="insight">
-  Defence dominated early speeches (22% in 1960) but declined 
+  Defence dominated early speeches (22% in 1960) but declined
   to 5% by 2025 as Singapore matured from survival to prosperity.
 </div>
 
@@ -777,10 +777,10 @@ License: MIT (code) | Data from public government sources
     <tr><td>2020s avg:</td><td>5.3%</td></tr>
     <tr><td>Peak year:</td><td>1961 (200 sentences)</td></tr>
   </table>
-  
+
   <h4>Sample Sentences from 1961:</h4>
   <blockquote>
-    "We must build a credible defence force to ensure our 
+    "We must build a credible defence force to ensure our
     survival as an independent nation."
   </blockquote>
 </details>
@@ -809,14 +809,14 @@ License: MIT (code) | Data from public government sources
   --success: #6A994E;        /* Green for positive */
   --warning: #F77F00;        /* Orange for attention */
   --danger: #E63946;         /* Red for decline */
-  
+
   /* Neutral Palette */
   --text: #1a1a1a;           /* Near-black text */
   --text-muted: #666;        /* Secondary text */
   --bg: #ffffff;             /* White background */
   --bg-gray: #f8f9fa;        /* Light gray panels */
   --border: #e0e0e0;         /* Subtle borders */
-  
+
   /* Ministry Colors (from notebook) */
   --ministry-defence: #5F0F40;
   --ministry-finance: #2E86AB;
@@ -832,11 +832,11 @@ License: MIT (code) | Data from public government sources
 ```css
 :root {
   /* Font Stack */
-  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", 
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI",
                Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "SF Mono", Monaco, "Cascadia Code", Consolas, 
+  --font-mono: "SF Mono", Monaco, "Cascadia Code", Consolas,
                "Courier New", monospace;
-  
+
   /* Type Scale */
   --text-xs: 0.75rem;    /* 12px */
   --text-sm: 0.875rem;   /* 14px */
@@ -846,7 +846,7 @@ License: MIT (code) | Data from public government sources
   --text-2xl: 1.5rem;    /* 24px */
   --text-3xl: 1.875rem;  /* 30px */
   --text-4xl: 2.25rem;   /* 36px */
-  
+
   /* Line Heights */
   --leading-tight: 1.25;
   --leading-normal: 1.5;
@@ -1121,7 +1121,7 @@ function renderReadabilityChart(data) {
     line: { color: '#2E86AB', width: 3 },
     marker: { size: 6 }
   };
-  
+
   const layout = {
     title: 'Reading Ease Over Time',
     xaxis: { title: 'Year' },
@@ -1129,7 +1129,7 @@ function renderReadabilityChart(data) {
     hovermode: 'closest',
     font: { family: 'system-ui, sans-serif' }
   };
-  
+
   Plotly.newPlot('readability-chart', [trace], layout, {
     responsive: true,
     displayModeBar: false
@@ -1143,12 +1143,12 @@ function renderReadabilityChart(data) {
 // Load statistics on demand
 async function loadMinistryStats(ministry) {
   const statsPanel = document.getElementById(`stats-${ministry}`);
-  
+
   if (statsPanel.dataset.loaded) return; // Already loaded
-  
+
   const response = await fetch(`data/ministry_${ministry}.json`);
   const data = await response.json();
-  
+
   // Render statistics
   statsPanel.innerHTML = renderStatsTable(data);
   statsPanel.dataset.loaded = 'true';
@@ -1774,8 +1774,8 @@ Full archive (all shards fetched): ~3.8MB
 
 ---
 
-**Document Version:** 1.0  
-**Last Updated:** February 8, 2026  
+**Document Version:** 1.0
+**Last Updated:** February 8, 2026
 **Status:** Ready for Implementation
 
 ---
