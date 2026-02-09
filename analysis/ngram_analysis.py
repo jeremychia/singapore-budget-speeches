@@ -11,6 +11,7 @@ import re
 import sys
 from collections import Counter
 from pathlib import Path
+from typing import Optional
 
 # Add extractor to path for speech_links
 sys.path.append(str(Path(__file__).parent.parent / "extractor"))
@@ -24,53 +25,256 @@ MARKDOWN_DIR = ANALYSIS_DIR.parent / "output_markdown"
 
 # Common stopwords and function words to filter out
 STOPWORDS = {
-    "the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for",
-    "of", "with", "by", "from", "as", "is", "was", "are", "were", "been",
-    "be", "have", "has", "had", "do", "does", "did", "will", "would",
-    "could", "should", "may", "might", "must", "shall", "can", "need",
-    "this", "that", "these", "those", "it", "its", "they", "them", "their",
-    "we", "our", "us", "i", "me", "my", "you", "your", "he", "him", "his",
-    "she", "her", "who", "which", "what", "where", "when", "how", "why",
-    "all", "each", "every", "both", "few", "more", "most", "other", "some",
-    "such", "no", "nor", "not", "only", "same", "so", "than", "too", "very",
-    "just", "also", "now", "here", "there", "then", "if", "because", "while",
-    "although", "though", "after", "before", "during", "until", "unless",
-    "about", "into", "through", "over", "under", "again", "further", "once",
-    "mr", "sir", "speaker", "chairman", "members", "house", "parliament",
-    "therefore", "however", "moreover", "thus", "hence", "accordingly",
-    "singapore", "singaporeans", "government", "minister", "ministry",
-    "year", "years", "per", "cent", "percent", "million", "billion",
-    "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-    "first", "second", "third", "last", "next", "new", "well", "many", "much",
-    "like", "get", "make", "made", "going", "want", "even", "still", "already",
-    "being", "been", "being", "having", "doing", "done", "getting", "making",
+    "the",
+    "a",
+    "an",
+    "and",
+    "or",
+    "but",
+    "in",
+    "on",
+    "at",
+    "to",
+    "for",
+    "of",
+    "with",
+    "by",
+    "from",
+    "as",
+    "is",
+    "was",
+    "are",
+    "were",
+    "been",
+    "be",
+    "have",
+    "has",
+    "had",
+    "do",
+    "does",
+    "did",
+    "will",
+    "would",
+    "could",
+    "should",
+    "may",
+    "might",
+    "must",
+    "shall",
+    "can",
+    "need",
+    "this",
+    "that",
+    "these",
+    "those",
+    "it",
+    "its",
+    "they",
+    "them",
+    "their",
+    "we",
+    "our",
+    "us",
+    "i",
+    "me",
+    "my",
+    "you",
+    "your",
+    "he",
+    "him",
+    "his",
+    "she",
+    "her",
+    "who",
+    "which",
+    "what",
+    "where",
+    "when",
+    "how",
+    "why",
+    "all",
+    "each",
+    "every",
+    "both",
+    "few",
+    "more",
+    "most",
+    "other",
+    "some",
+    "such",
+    "no",
+    "nor",
+    "not",
+    "only",
+    "same",
+    "so",
+    "than",
+    "too",
+    "very",
+    "just",
+    "also",
+    "now",
+    "here",
+    "there",
+    "then",
+    "if",
+    "because",
+    "while",
+    "although",
+    "though",
+    "after",
+    "before",
+    "during",
+    "until",
+    "unless",
+    "about",
+    "into",
+    "through",
+    "over",
+    "under",
+    "again",
+    "further",
+    "once",
+    "mr",
+    "sir",
+    "speaker",
+    "chairman",
+    "members",
+    "house",
+    "parliament",
+    "therefore",
+    "however",
+    "moreover",
+    "thus",
+    "hence",
+    "accordingly",
+    "singapore",
+    "singaporeans",
+    "government",
+    "minister",
+    "ministry",
+    "year",
+    "years",
+    "per",
+    "cent",
+    "percent",
+    "million",
+    "billion",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "first",
+    "second",
+    "third",
+    "last",
+    "next",
+    "new",
+    "well",
+    "many",
+    "much",
+    "like",
+    "get",
+    "make",
+    "made",
+    "going",
+    "want",
+    "even",
+    "still",
+    "already",
+    "being",
+    "been",
+    "being",
+    "having",
+    "doing",
+    "done",
+    "getting",
+    "making",
 }
 
 # Boring phrases to filter out (common parliamentary language and minister names)
 BORING_PHRASES = {
     # Parliamentary language
-    "per cent", "last year", "this year", "next year", "fiscal year",
-    "financial year", "mr speaker", "mr chairman", "budget speech",
-    "hon members", "budget debate", "committee of supply", "supply bill",
+    "per cent",
+    "last year",
+    "this year",
+    "next year",
+    "fiscal year",
+    "financial year",
+    "mr speaker",
+    "mr chairman",
+    "budget speech",
+    "hon members",
+    "budget debate",
+    "committee of supply",
+    "supply bill",
     # Document references (hansard noise)
-    "hansard document", "please refer", "refer hansard", "see hansard",
-    "refer document", "document full", "full text", "text available",
-    "refer to hansard", "refer toannex", "refer to annex", "refer annex",
-    "toannex", "annex a", "annex b", "annex c", "annex d", "annex e",
-    "document please", "please refer toannex", "s c",
+    "hansard document",
+    "please refer",
+    "refer hansard",
+    "see hansard",
+    "refer document",
+    "document full",
+    "full text",
+    "text available",
+    "refer to hansard",
+    "refer toannex",
+    "refer to annex",
+    "refer annex",
+    "toannex",
+    "annex a",
+    "annex b",
+    "annex c",
+    "annex d",
+    "annex e",
+    "document please",
+    "please refer toannex",
+    "s c",
     # Minister names (self-references)
-    "dr goh", "goh keng", "keng swee", "dr goh keng", "goh keng swee",
-    "lim kim", "kim san", "lim kim san",
-    "hon sui", "sui sen", "hon sui sen",
-    "goh chok", "chok tong", "goh chok tong",
-    "hu tsu", "tsu tau", "hu tsu tau", "dr richard", "richard hu",
-    "tony tan", "tan keng", "dr tony", "dr tony tan", "tony tan keng",
-    "hsien loong", "lee hsien", "lee hsien loong",
-    "tharman shanmugaratnam", "shanmugaratnam",
-    "heng swee", "swee keat", "heng swee keat",
+    "dr goh",
+    "goh keng",
+    "keng swee",
+    "dr goh keng",
+    "goh keng swee",
+    "lim kim",
+    "kim san",
+    "lim kim san",
+    "hon sui",
+    "sui sen",
+    "hon sui sen",
+    "goh chok",
+    "chok tong",
+    "goh chok tong",
+    "hu tsu",
+    "tsu tau",
+    "hu tsu tau",
+    "dr richard",
+    "richard hu",
+    "tony tan",
+    "tan keng",
+    "dr tony",
+    "dr tony tan",
+    "tony tan keng",
+    "hsien loong",
+    "lee hsien",
+    "lee hsien loong",
+    "tharman shanmugaratnam",
+    "shanmugaratnam",
+    "heng swee",
+    "swee keat",
+    "heng swee keat",
     "lawrence wong",
     # Other noise
-    "r d", "d expenditure", "000 000", "000",
+    "r d",
+    "d expenditure",
+    "000 000",
+    "000",
 }
 
 
@@ -81,8 +285,15 @@ def is_boring_phrase(phrase: str) -> bool:
         return True
     # Contains certain noise patterns
     noise_patterns = [
-        "hansard", "annex", "document", "please refer", "toannex",
-        "keng yam", "richard hu", "hu tsu", "tsu tau",
+        "hansard",
+        "annex",
+        "document",
+        "please refer",
+        "toannex",
+        "keng yam",
+        "richard hu",
+        "hu tsu",
+        "tsu tau",
     ]
     for pattern in noise_patterns:
         if pattern in phrase:
@@ -96,10 +307,11 @@ def is_boring_phrase(phrase: str) -> bool:
     return False
 
 
-def get_minister_for_year(year: int) -> str | None:
+def get_minister_for_year(year: int) -> Optional[str]:
     """Get the minister who delivered the budget for a given year."""
     if year in budget_speech_links:
-        return budget_speech_links[year].get("minister")
+        minister = budget_speech_links[year].get("minister")
+        return str(minister) if minister else None
     return None
 
 
@@ -216,7 +428,11 @@ def analyze_minister_ngrams(
         all_ngrams.update(ngrams)
 
     # Calculate scores and get top phrases per minister
-    results = {"ministers": {}, "metadata": {"n_values": n_values, "top_k": top_k}}
+    results: dict[str, object] = {
+        "ministers": {},
+        "metadata": {"n_values": n_values, "top_k": top_k},
+    }
+    ministers_dict: dict[str, object] = {}
 
     for minister, ngram_counts in minister_ngrams.items():
         total_ngrams = sum(ngram_counts.values())
@@ -228,14 +444,10 @@ def analyze_minister_ngrams(
                 continue
 
             # Get this phrase's count for all ministers
-            all_minister_counts = {
-                m: minister_ngrams[m].get(phrase, 0) for m in minister_ngrams
-            }
+            all_minister_counts = {m: minister_ngrams[m].get(phrase, 0) for m in minister_ngrams}
 
             # Calculate distinctiveness score
-            score = calculate_tfidf_boost(
-                phrase, count, total_ngrams, all_minister_counts
-            )
+            score = calculate_tfidf_boost(phrase, count, total_ngrams, all_minister_counts)
 
             scored_phrases.append(
                 {
@@ -249,12 +461,13 @@ def analyze_minister_ngrams(
         scored_phrases.sort(key=lambda x: x["score"], reverse=True)
         top_phrases = scored_phrases[:top_k]
 
-        results["ministers"][minister] = {
+        ministers_dict[minister] = {
             "years": f"{min(minister_years[minister])}-{max(minister_years[minister])}",
             "num_speeches": len(minister_years[minister]),
             "phrases": top_phrases,
         }
 
+    results["ministers"] = ministers_dict
     return results
 
 

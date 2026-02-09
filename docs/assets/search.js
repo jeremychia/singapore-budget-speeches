@@ -14,7 +14,39 @@ let currentResults = [];
 document.addEventListener("DOMContentLoaded", () => {
   loadSearchOverview();
   setupEventListeners();
+  handleUrlParameters();
 });
+
+// Handle URL parameters for direct search links
+function handleUrlParameters() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const query = urlParams.get("q");
+  const minister = urlParams.get("minister");
+
+  if (query) {
+    document.getElementById("searchInput").value = query;
+
+    // Set minister filter if provided
+    if (minister) {
+      const ministerFilter = document.getElementById("ministerFilter");
+      // Find and select the matching option
+      for (const option of ministerFilter.options) {
+        if (option.value === minister) {
+          option.selected = true;
+          break;
+        }
+      }
+    }
+
+    // Perform search after index loads
+    const checkAndSearch = setInterval(() => {
+      if (searchIndex) {
+        clearInterval(checkAndSearch);
+        performSearch();
+      }
+    }, 100);
+  }
+}
 
 // Setup event listeners
 function setupEventListeners() {

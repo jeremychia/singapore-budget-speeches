@@ -602,11 +602,15 @@ function renderPhrasesChart() {
           ${topPhrases
             .map(
               (p, i) => `
-            <div class="phrase-item">
+            <a href="search.html?q=${encodeURIComponent(
+              p.phrase,
+            )}&minister=${encodeURIComponent(
+              ministerName,
+            )}" class="phrase-item phrase-link">
               <span class="phrase-rank">${i + 1}</span>
               <span class="phrase-text">${p.phrase}</span>
               <span class="phrase-count">${p.count}×</span>
-            </div>
+            </a>
           `,
             )
             .join("")}

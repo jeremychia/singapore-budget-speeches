@@ -1049,6 +1049,23 @@ a:hover {
   padding: 4px 0;
 }
 
+.phrase-link {
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  padding: 4px 6px;
+  margin: -4px -6px;
+  transition: background-color 0.2s ease;
+}
+
+.phrase-link:hover {
+  background-color: var(--color-bg-alt);
+}
+
+.phrase-link:hover .phrase-text {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 .phrase-rank {
   font-weight: 700;
   color: var(--color-text-light);
