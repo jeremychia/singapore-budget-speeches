@@ -147,9 +147,7 @@ function determineShards(decade, topic) {
     );
   }
 
-  if (topic) {
-    shards.push(`topics/${topic.toLowerCase().replace(/\s+/g, "-")}.json`);
-  }
+  // Note: Topic filtering is done in executeSearch, not via separate shards
 
   return shards;
 }
