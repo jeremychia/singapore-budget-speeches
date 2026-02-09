@@ -4,397 +4,727 @@
       "total_sentences": 560,
       "avg_sentence_length": 21.0,
       "readability": 59.6,
-      "minister": "Goh Keng Swee"
+      "minister": "Goh Keng Swee",
+      "ttr": 0.183,
+      "mtld": 69.3,
+      "temporal_ratio": 0.5642,
+      "certainty_ratio": 0.6538,
+      "passive_ratio": 0.2723
     },
     "1961": {
       "total_sentences": 715,
       "avg_sentence_length": 20.8,
       "readability": 59.9,
-      "minister": "Goh Keng Swee"
+      "minister": "Goh Keng Swee",
+      "ttr": 0.1654,
+      "mtld": 63.69,
+      "temporal_ratio": 0.5628,
+      "certainty_ratio": 0.6194,
+      "passive_ratio": 0.3146
     },
     "1962": {
       "total_sentences": 530,
       "avg_sentence_length": 19.4,
       "readability": 63.0,
-      "minister": "Goh Keng Swee"
+      "minister": "Goh Keng Swee",
+      "ttr": 0.1902,
+      "mtld": 60.43,
+      "temporal_ratio": 0.5753,
+      "certainty_ratio": 0.6633,
+      "passive_ratio": 0.3752
     },
     "1963": {
       "total_sentences": 463,
       "avg_sentence_length": 21.2,
       "readability": 59.3,
-      "minister": "Goh Keng Swee"
+      "minister": "Goh Keng Swee",
+      "ttr": 0.2007,
+      "mtld": 71.86,
+      "temporal_ratio": 0.4884,
+      "certainty_ratio": 0.7421,
+      "passive_ratio": 0.2713
     },
     "1964": {
       "total_sentences": 577,
       "avg_sentence_length": 20.7,
       "readability": 60.3,
-      "minister": "Goh Keng Swee"
+      "minister": "Goh Keng Swee",
+      "ttr": 0.1802,
+      "mtld": 61.14,
+      "temporal_ratio": 0.4729,
+      "certainty_ratio": 0.6374,
+      "passive_ratio": 0.3416
     },
     "1965": {
       "total_sentences": 382,
       "avg_sentence_length": 18.8,
       "readability": 63.6,
-      "minister": "Goh Keng Swee"
+      "minister": "Goh Keng Swee",
+      "ttr": 0.2262,
+      "mtld": 67.73,
+      "temporal_ratio": 0.5064,
+      "certainty_ratio": 0.6754,
+      "passive_ratio": 0.3291
     },
     "1966": {
       "total_sentences": 465,
       "avg_sentence_length": 21.3,
       "readability": 59.3,
-      "minister": "Lim Kim San"
+      "minister": "Lim Kim San",
+      "ttr": 0.1909,
+      "mtld": 65.39,
+      "temporal_ratio": 0.6354,
+      "certainty_ratio": 0.6935,
+      "passive_ratio": 0.3065
     },
     "1967": {
       "total_sentences": 517,
       "avg_sentence_length": 20.4,
       "readability": 58.1,
-      "minister": "Lim Kim San"
+      "minister": "Lim Kim San",
+      "ttr": 0.1898,
+      "mtld": 58.38,
+      "temporal_ratio": 0.7158,
+      "certainty_ratio": 0.7936,
+      "passive_ratio": 0.3255
     },
     "1968": {
       "total_sentences": 361,
       "avg_sentence_length": 22.5,
       "readability": 58.7,
-      "minister": "Goh Keng Swee"
+      "minister": "Goh Keng Swee",
+      "ttr": 0.2015,
+      "mtld": 76.67,
+      "temporal_ratio": 0.5441,
+      "certainty_ratio": 0.6917,
+      "passive_ratio": 0.1581
     },
     "1969": {
       "total_sentences": 518,
       "avg_sentence_length": 19.8,
       "readability": 64.3,
-      "minister": "Goh Keng Swee"
+      "minister": "Goh Keng Swee",
+      "ttr": 0.2016,
+      "mtld": 69.09,
+      "temporal_ratio": 0.5866,
+      "certainty_ratio": 0.7619,
+      "passive_ratio": 0.3161
     },
     "1970": {
       "total_sentences": 656,
       "avg_sentence_length": 21.0,
       "readability": 59.8,
-      "minister": "Goh Keng Swee"
+      "minister": "Goh Keng Swee",
+      "ttr": 0.1852,
+      "mtld": 69.26,
+      "temporal_ratio": 0.4132,
+      "certainty_ratio": 0.6231,
+      "passive_ratio": 0.2182
     },
     "1971": {
       "total_sentences": 655,
       "avg_sentence_length": 21.6,
       "readability": 55.8,
-      "minister": "Hon Sui Sen"
+      "minister": "Hon Sui Sen",
+      "ttr": 0.1777,
+      "mtld": 66.98,
+      "temporal_ratio": 0.7176,
+      "certainty_ratio": 0.7536,
+      "passive_ratio": 0.3812
     },
     "1972": {
       "total_sentences": 592,
       "avg_sentence_length": 24.8,
       "readability": 51.5,
-      "minister": "Hon Sui Sen"
+      "minister": "Hon Sui Sen",
+      "ttr": 0.1661,
+      "mtld": 59.92,
+      "temporal_ratio": 0.5206,
+      "certainty_ratio": 0.6199,
+      "passive_ratio": 0.3728
     },
     "1973": {
       "total_sentences": 510,
       "avg_sentence_length": 22.6,
       "readability": 58.2,
-      "minister": "Hon Sui Sen"
+      "minister": "Hon Sui Sen",
+      "ttr": 0.1879,
+      "mtld": 57.56,
+      "temporal_ratio": 0.3523,
+      "certainty_ratio": 0.5804,
+      "passive_ratio": 0.2758
     },
     "1974": {
       "total_sentences": 736,
       "avg_sentence_length": 24.0,
       "readability": 55.3,
-      "minister": "Hon Sui Sen"
+      "minister": "Hon Sui Sen",
+      "ttr": 0.1575,
+      "mtld": 65.69,
+      "temporal_ratio": 0.3902,
+      "certainty_ratio": 0.6506,
+      "passive_ratio": 0.2583
     },
     "1975": {
       "total_sentences": 255,
       "avg_sentence_length": 20.0,
       "readability": 57.2,
-      "minister": "Hon Sui Sen"
+      "minister": "Hon Sui Sen",
+      "ttr": 0.2556,
+      "mtld": 71.32,
+      "temporal_ratio": 0.6857,
+      "certainty_ratio": 0.8,
+      "passive_ratio": 0.2464
     },
     "1976": {
       "total_sentences": 271,
       "avg_sentence_length": 16.9,
       "readability": 57.4,
-      "minister": "Hon Sui Sen"
+      "minister": "Hon Sui Sen",
+      "ttr": 0.2907,
+      "mtld": 81.85,
+      "temporal_ratio": 0.5826,
+      "certainty_ratio": 0.6633,
+      "passive_ratio": 0.2025
     },
     "1977": {
       "total_sentences": 254,
       "avg_sentence_length": 19.2,
       "readability": 57.4,
-      "minister": "Hon Sui Sen"
+      "minister": "Hon Sui Sen",
+      "ttr": 0.2652,
+      "mtld": 69.47,
+      "temporal_ratio": 0.6494,
+      "certainty_ratio": 0.8099,
+      "passive_ratio": 0.2917
     },
     "1978": {
       "total_sentences": 359,
       "avg_sentence_length": 20.1,
       "readability": 56.1,
-      "minister": "Hon Sui Sen"
+      "minister": "Hon Sui Sen",
+      "ttr": 0.2354,
+      "mtld": 69.21,
+      "temporal_ratio": 0.5899,
+      "certainty_ratio": 0.8099,
+      "passive_ratio": 0.3052
     },
     "1979": {
       "total_sentences": 292,
       "avg_sentence_length": 17.9,
       "readability": 60.0,
-      "minister": "Goh Chok Tong"
+      "minister": "Goh Chok Tong",
+      "ttr": 0.2645,
+      "mtld": 66.18,
+      "temporal_ratio": 0.4804,
+      "certainty_ratio": 0.8427,
+      "passive_ratio": 0.2412
     },
     "1980": {
       "total_sentences": 488,
       "avg_sentence_length": 17.9,
       "readability": 59.6,
-      "minister": "Goh Chok Tong"
+      "minister": "Goh Chok Tong",
+      "ttr": 0.2241,
+      "mtld": 69.37,
+      "temporal_ratio": 0.6364,
+      "certainty_ratio": 0.8895,
+      "passive_ratio": 0.2251
     },
     "1981": {
       "total_sentences": 467,
       "avg_sentence_length": 17.6,
       "readability": 57.1,
-      "minister": "Goh Chok Tong"
+      "minister": "Goh Chok Tong",
+      "ttr": 0.2279,
+      "mtld": 65.36,
+      "temporal_ratio": 0.7148,
+      "certainty_ratio": 0.8832,
+      "passive_ratio": 0.2225
     },
     "1982": {
       "total_sentences": 548,
       "avg_sentence_length": 19.7,
       "readability": 57.3,
-      "minister": "Dr Tony Tan Keng Yam"
+      "minister": "Dr Tony Tan Keng Yam",
+      "ttr": 0.2056,
+      "mtld": 69.86,
+      "temporal_ratio": 0.6338,
+      "certainty_ratio": 0.9286,
+      "passive_ratio": 0.2889
     },
     "1983": {
       "total_sentences": 552,
       "avg_sentence_length": 19.2,
       "readability": 56.4,
-      "minister": "Dr Tony Tan Keng Yam"
+      "minister": "Dr Tony Tan Keng Yam",
+      "ttr": 0.2074,
+      "mtld": 71.62,
+      "temporal_ratio": 0.6505,
+      "certainty_ratio": 0.8796,
+      "passive_ratio": 0.2652
     },
     "1984": {
       "total_sentences": 567,
       "avg_sentence_length": 18.6,
       "readability": 56.7,
-      "minister": "Dr Tony Tan Keng Yam"
+      "minister": "Dr Tony Tan Keng Yam",
+      "ttr": 0.2011,
+      "mtld": 72.65,
+      "temporal_ratio": 0.5581,
+      "certainty_ratio": 0.8342,
+      "passive_ratio": 0.2671
     },
     "1985": {
       "total_sentences": 390,
       "avg_sentence_length": 20.8,
       "readability": 57.0,
-      "minister": "Dr Tony Tan Keng Yam"
+      "minister": "Dr Tony Tan Keng Yam",
+      "ttr": 0.2216,
+      "mtld": 73.4,
+      "temporal_ratio": 0.6452,
+      "certainty_ratio": 0.8819,
+      "passive_ratio": 0.2532
     },
     "1986": {
       "total_sentences": 392,
       "avg_sentence_length": 17.3,
       "readability": 60.1,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.2272,
+      "mtld": 74.51,
+      "temporal_ratio": 0.756,
+      "certainty_ratio": 0.8457,
+      "passive_ratio": 0.3246
     },
     "1987": {
       "total_sentences": 450,
       "avg_sentence_length": 18.6,
       "readability": 58.5,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.2049,
+      "mtld": 68.05,
+      "temporal_ratio": 0.6627,
+      "certainty_ratio": 0.9126,
+      "passive_ratio": 0.3179
     },
     "1988": {
       "total_sentences": 431,
       "avg_sentence_length": 18.9,
       "readability": 55.6,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.2086,
+      "mtld": 69.8,
+      "temporal_ratio": 0.6311,
+      "certainty_ratio": 0.8267,
+      "passive_ratio": 0.2993
     },
     "1989": {
       "total_sentences": 326,
       "avg_sentence_length": 18.5,
       "readability": 60.7,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.2321,
+      "mtld": 68.53,
+      "temporal_ratio": 0.6982,
+      "certainty_ratio": 0.8029,
+      "passive_ratio": 0.2413
     },
     "1990": {
       "total_sentences": 473,
       "avg_sentence_length": 18.9,
       "readability": 56.0,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.2088,
+      "mtld": 68.86,
+      "temporal_ratio": 0.6694,
+      "certainty_ratio": 0.821,
+      "passive_ratio": 0.2565
     },
     "1991": {
       "total_sentences": 447,
       "avg_sentence_length": 17.8,
       "readability": 59.9,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.2245,
+      "mtld": 73.01,
+      "temporal_ratio": 0.6033,
+      "certainty_ratio": 0.8462,
+      "passive_ratio": 0.2752
     },
     "1992": {
       "total_sentences": 525,
       "avg_sentence_length": 16.6,
       "readability": 62.4,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.2188,
+      "mtld": 68.53,
+      "temporal_ratio": 0.6707,
+      "certainty_ratio": 0.7976,
+      "passive_ratio": 0.2176
     },
     "1993": {
       "total_sentences": 626,
       "avg_sentence_length": 17.6,
       "readability": 63.3,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.1817,
+      "mtld": 65.28,
+      "temporal_ratio": 0.7714,
+      "certainty_ratio": 0.8723,
+      "passive_ratio": 0.2292
     },
     "1994": {
       "total_sentences": 568,
       "avg_sentence_length": 17.8,
       "readability": 57.6,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.1982,
+      "mtld": 69.01,
+      "temporal_ratio": 0.7076,
+      "certainty_ratio": 0.9206,
+      "passive_ratio": 0.2372
     },
     "1995": {
       "total_sentences": 469,
       "avg_sentence_length": 19.0,
       "readability": 58.1,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.2104,
+      "mtld": 69.36,
+      "temporal_ratio": 0.7526,
+      "certainty_ratio": 0.9267,
+      "passive_ratio": 0.2737
     },
     "1996": {
       "total_sentences": 616,
       "avg_sentence_length": 17.7,
       "readability": 60.6,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.1914,
+      "mtld": 70.76,
+      "temporal_ratio": 0.7609,
+      "certainty_ratio": 0.9035,
+      "passive_ratio": 0.2379
     },
     "1997": {
       "total_sentences": 495,
       "avg_sentence_length": 19.6,
       "readability": 56.4,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.1952,
+      "mtld": 65.98,
+      "temporal_ratio": 0.7236,
+      "certainty_ratio": 0.837,
+      "passive_ratio": 0.2233
     },
     "1998": {
       "total_sentences": 634,
       "avg_sentence_length": 17.9,
       "readability": 57.7,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.1858,
+      "mtld": 68.88,
+      "temporal_ratio": 0.7308,
+      "certainty_ratio": 0.8425,
+      "passive_ratio": 0.227
     },
     "1999": {
       "total_sentences": 529,
       "avg_sentence_length": 19.2,
       "readability": 56.1,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.201,
+      "mtld": 68.29,
+      "temporal_ratio": 0.7479,
+      "certainty_ratio": 0.8163,
+      "passive_ratio": 0.1921
     },
     "2000": {
       "total_sentences": 631,
       "avg_sentence_length": 17.3,
       "readability": 58.7,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.2083,
+      "mtld": 72.82,
+      "temporal_ratio": 0.7318,
+      "certainty_ratio": 0.8333,
+      "passive_ratio": 0.2436
     },
     "2001": {
       "total_sentences": 480,
       "avg_sentence_length": 18.0,
       "readability": 63.0,
-      "minister": "Dr Richard Hu Tsu Tau"
+      "minister": "Dr Richard Hu Tsu Tau",
+      "ttr": 0.2081,
+      "mtld": 67.44,
+      "temporal_ratio": 0.7375,
+      "certainty_ratio": 0.9015,
+      "passive_ratio": 0.1929
     },
     "2002": {
       "total_sentences": 781,
       "avg_sentence_length": 16.6,
       "readability": 63.8,
-      "minister": "Lee Hsien Loong"
+      "minister": "Lee Hsien Loong",
+      "ttr": 0.1783,
+      "mtld": 74.63,
+      "temporal_ratio": 0.7984,
+      "certainty_ratio": 0.8738,
+      "passive_ratio": 0.1399
     },
     "2003": {
       "total_sentences": 814,
       "avg_sentence_length": 17.7,
       "readability": 60.7,
-      "minister": "Lee Hsien Loong"
+      "minister": "Lee Hsien Loong",
+      "ttr": 0.18,
+      "mtld": 74.53,
+      "temporal_ratio": 0.8201,
+      "certainty_ratio": 0.8607,
+      "passive_ratio": 0.1048
     },
     "2004": {
       "total_sentences": 886,
       "avg_sentence_length": 17.6,
       "readability": 58.5,
-      "minister": "Lee Hsien Loong"
+      "minister": "Lee Hsien Loong",
+      "ttr": 0.1828,
+      "mtld": 93.14,
+      "temporal_ratio": 0.7318,
+      "certainty_ratio": 0.8576,
+      "passive_ratio": 0.0986
     },
     "2005": {
       "total_sentences": 673,
       "avg_sentence_length": 18.3,
       "readability": 61.0,
-      "minister": "Lee Hsien Loong"
+      "minister": "Lee Hsien Loong",
+      "ttr": 0.191,
+      "mtld": 80.92,
+      "temporal_ratio": 0.8333,
+      "certainty_ratio": 0.8608,
+      "passive_ratio": 0.0952
     },
     "2006": {
       "total_sentences": 744,
       "avg_sentence_length": 17.7,
       "readability": 62.3,
-      "minister": "Lee Hsien Loong"
+      "minister": "Lee Hsien Loong",
+      "ttr": 0.1997,
+      "mtld": 86.4,
+      "temporal_ratio": 0.7976,
+      "certainty_ratio": 0.8968,
+      "passive_ratio": 0.0981
     },
     "2007": {
       "total_sentences": 991,
       "avg_sentence_length": 17.4,
       "readability": 67.3,
-      "minister": "Tharman Shanmugaratnam"
+      "minister": "Tharman Shanmugaratnam",
+      "ttr": 0.1536,
+      "mtld": 75.36,
+      "temporal_ratio": 0.8812,
+      "certainty_ratio": 0.8674,
+      "passive_ratio": 0.0952
     },
     "2008": {
       "total_sentences": 691,
       "avg_sentence_length": 20.1,
       "readability": 64.5,
-      "minister": "Tharman Shanmugaratnam"
+      "minister": "Tharman Shanmugaratnam",
+      "ttr": 0.1678,
+      "mtld": 80.1,
+      "temporal_ratio": 0.7479,
+      "certainty_ratio": 0.8223,
+      "passive_ratio": 0.103
     },
     "2009": {
       "total_sentences": 888,
       "avg_sentence_length": 19.5,
       "readability": 60.9,
-      "minister": "Tharman Shanmugaratnam"
+      "minister": "Tharman Shanmugaratnam",
+      "ttr": 0.1441,
+      "mtld": 76.29,
+      "temporal_ratio": 0.8228,
+      "certainty_ratio": 0.858,
+      "passive_ratio": 0.0859
     },
     "2010": {
       "total_sentences": 708,
       "avg_sentence_length": 20.1,
       "readability": 56.9,
-      "minister": "Tharman Shanmugaratnam"
+      "minister": "Tharman Shanmugaratnam",
+      "ttr": 0.1577,
+      "mtld": 80.29,
+      "temporal_ratio": 0.8367,
+      "certainty_ratio": 0.8859,
+      "passive_ratio": 0.0758
     },
     "2011": {
       "total_sentences": 912,
       "avg_sentence_length": 20.5,
       "readability": 63.6,
-      "minister": "Tharman Shanmugaratnam"
+      "minister": "Tharman Shanmugaratnam",
+      "ttr": 0.1225,
+      "mtld": 75.34,
+      "temporal_ratio": 0.7938,
+      "certainty_ratio": 0.8288,
+      "passive_ratio": 0.0726
     },
     "2012": {
       "total_sentences": 651,
       "avg_sentence_length": 19.5,
       "readability": 65.8,
-      "minister": "Tharman Shanmugaratnam"
+      "minister": "Tharman Shanmugaratnam",
+      "ttr": 0.1668,
+      "mtld": 85.7,
+      "temporal_ratio": 0.8536,
+      "certainty_ratio": 0.8357,
+      "passive_ratio": 0.0713
     },
     "2013": {
       "total_sentences": 722,
       "avg_sentence_length": 19.0,
       "readability": 64.2,
-      "minister": "Tharman Shanmugaratnam"
+      "minister": "Tharman Shanmugaratnam",
+      "ttr": 0.1577,
+      "mtld": 77.34,
+      "temporal_ratio": 0.8555,
+      "certainty_ratio": 0.8914,
+      "passive_ratio": 0.0783
     },
     "2014": {
       "total_sentences": 666,
       "avg_sentence_length": 18.4,
       "readability": 63.2,
-      "minister": "Tharman Shanmugaratnam"
+      "minister": "Tharman Shanmugaratnam",
+      "ttr": 0.1736,
+      "mtld": 85.92,
+      "temporal_ratio": 0.8308,
+      "certainty_ratio": 0.8854,
+      "passive_ratio": 0.0884
     },
     "2015": {
       "total_sentences": 979,
       "avg_sentence_length": 18.1,
       "readability": 65.6,
-      "minister": "Tharman Shanmugaratnam"
+      "minister": "Tharman Shanmugaratnam",
+      "ttr": 0.1401,
+      "mtld": 81.18,
+      "temporal_ratio": 0.8176,
+      "certainty_ratio": 0.8189,
+      "passive_ratio": 0.0783
     },
     "2016": {
       "total_sentences": 774,
       "avg_sentence_length": 17.8,
       "readability": 63.7,
-      "minister": "Heng Swee Keat"
+      "minister": "Heng Swee Keat",
+      "ttr": 0.1679,
+      "mtld": 84.69,
+      "temporal_ratio": 0.8343,
+      "certainty_ratio": 0.8219,
+      "passive_ratio": 0.0773
     },
     "2017": {
       "total_sentences": 565,
       "avg_sentence_length": 17.2,
       "readability": 62.5,
-      "minister": "Heng Swee Keat"
+      "minister": "Heng Swee Keat",
+      "ttr": 0.2024,
+      "mtld": 85.43,
+      "temporal_ratio": 0.8753,
+      "certainty_ratio": 0.8604,
+      "passive_ratio": 0.059
     },
     "2018": {
       "total_sentences": 723,
       "avg_sentence_length": 18.9,
       "readability": 61.8,
-      "minister": "Heng Swee Keat"
+      "minister": "Heng Swee Keat",
+      "ttr": 0.174,
+      "mtld": 82.93,
+      "temporal_ratio": 0.8642,
+      "certainty_ratio": 0.8826,
+      "passive_ratio": 0.0455
     },
     "2019": {
       "total_sentences": 875,
       "avg_sentence_length": 17.9,
       "readability": 62.0,
-      "minister": "Heng Swee Keat"
+      "minister": "Heng Swee Keat",
+      "ttr": 0.1716,
+      "mtld": 88.01,
+      "temporal_ratio": 0.8242,
+      "certainty_ratio": 0.8814,
+      "passive_ratio": 0.0653
     },
     "2020": {
       "total_sentences": 892,
       "avg_sentence_length": 17.9,
       "readability": 63.2,
-      "minister": "Heng Swee Keat"
+      "minister": "Heng Swee Keat",
+      "ttr": 0.1676,
+      "mtld": 87.78,
+      "temporal_ratio": 0.8779,
+      "certainty_ratio": 0.8515,
+      "passive_ratio": 0.0433
     },
     "2021": {
       "total_sentences": 886,
       "avg_sentence_length": 18.5,
       "readability": 59.5,
-      "minister": "Heng Swee Keat"
+      "minister": "Heng Swee Keat",
+      "ttr": 0.1673,
+      "mtld": 87.79,
+      "temporal_ratio": 0.8066,
+      "certainty_ratio": 0.8701,
+      "passive_ratio": 0.0912
     },
     "2022": {
       "total_sentences": 852,
       "avg_sentence_length": 18.4,
       "readability": 64.8,
-      "minister": "Lawrence Wong"
+      "minister": "Lawrence Wong",
+      "ttr": 0.1697,
+      "mtld": 81.02,
+      "temporal_ratio": 0.8325,
+      "certainty_ratio": 0.8245,
+      "passive_ratio": 0.0918
     },
     "2023": {
       "total_sentences": 726,
       "avg_sentence_length": 19.9,
       "readability": 62.6,
-      "minister": "Lawrence Wong"
+      "minister": "Lawrence Wong",
+      "ttr": 0.1725,
+      "mtld": 85.54,
+      "temporal_ratio": 0.8067,
+      "certainty_ratio": 0.83,
+      "passive_ratio": 0.0788
     },
     "2024": {
       "total_sentences": 757,
       "avg_sentence_length": 17.3,
       "readability": 65.4,
-      "minister": "Lawrence Wong"
+      "minister": "Lawrence Wong",
+      "ttr": 0.1895,
+      "mtld": 93.13,
+      "temporal_ratio": 0.8581,
+      "certainty_ratio": 0.8493,
+      "passive_ratio": 0.0684
     },
     "2025": {
       "total_sentences": 779,
       "avg_sentence_length": 16.7,
       "readability": 65.0,
-      "minister": "Lawrence Wong"
+      "minister": "Lawrence Wong",
+      "ttr": 0.1926,
+      "mtld": 96.78,
+      "temporal_ratio": 0.8209,
+      "certainty_ratio": 0.8294,
+      "passive_ratio": 0.0757
     }
   },
   "by_minister": {

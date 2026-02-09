@@ -191,8 +191,15 @@ def export_yearly_overview():
     """Export yearly statistics as lightweight JSON"""
     print("\n📅 Exporting yearly overview...")
 
-    # Load CSV
+    # Load CSVs
     df = pd.read_csv(ANALYSIS_DIR / "yearly_speech_statistics.csv")
+
+    # Load linguistic features if available
+    linguistic_path = ANALYSIS_DIR / "linguistic_features.csv"
+    linguistic_df = None
+    if linguistic_path.exists():
+        linguistic_df = pd.read_csv(linguistic_path)
+        print("  ✓ Loaded linguistic features")
 
     overview = {
         "by_year": {},
@@ -220,12 +227,27 @@ def export_yearly_overview():
     # Process by year
     for _, row in df.iterrows():
         year = str(int(row["year"]))
-        overview["by_year"][year] = {
+        year_data = {
             "total_sentences": int(row["total_sentences"]),
             "avg_sentence_length": round(float(row["avg_words_per_sentence"]), 1),
             "readability": round(float(row["readability"]), 1),
             "minister": row["minister"],
         }
+
+        # Add linguistic features if available
+        if linguistic_df is not None:
+            ling_row = linguistic_df[linguistic_df["year"] == int(row["year"])]
+            if not ling_row.empty:
+                ling_row = ling_row.iloc[0]
+                year_data["ttr"] = round(float(ling_row["ttr"]), 4)
+                year_data["mtld"] = (
+                    round(float(ling_row["mtld"]), 2) if pd.notna(ling_row["mtld"]) else None
+                )
+                year_data["temporal_ratio"] = round(float(ling_row["temporal_ratio"]), 4)
+                year_data["certainty_ratio"] = round(float(ling_row["certainty_ratio"]), 4)
+                year_data["passive_ratio"] = round(float(ling_row["passive_ratio"]), 4)
+
+        overview["by_year"][year] = year_data
 
     # Group by minister
     minister_stats = (

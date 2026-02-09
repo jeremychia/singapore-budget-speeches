@@ -48,6 +48,11 @@ async function loadLanguageData() {
     renderCorrelationChart();
     renderMinisterChart();
     renderDecadeChart();
+    // New linguistic feature charts
+    renderVocabularyChart();
+    renderTemporalChart();
+    renderCertaintyChart();
+    renderPassiveChart();
   } catch (error) {
     console.error("Failed to load language data:", error);
     document.getElementById("loading").innerHTML = `
@@ -557,4 +562,351 @@ function getDecadeColor(index) {
     "#C8102E", // 2020s - Red
   ];
   return palette[index] || colors.neutral;
+}
+
+// ===================================
+// CHART 5: VOCABULARY RICHNESS (TTR)
+// ===================================
+function renderVocabularyChart() {
+  const years = Object.keys(languageData.by_year).sort();
+
+  // Check if TTR data exists
+  if (!languageData.by_year[years[0]].ttr) {
+    document.getElementById("vocabularyChart").innerHTML =
+      '<p style="color: #718096; text-align: center; padding: 2rem;">Vocabulary data not available</p>';
+    return;
+  }
+
+  const ttrData = years.map((y) => languageData.by_year[y].ttr);
+
+  // Calculate 5-year moving average
+  const movingAvgData = movingAverage(ttrData, 5);
+
+  const traces = [
+    {
+      x: years,
+      y: ttrData,
+      name: "Type-Token Ratio",
+      type: "scatter",
+      mode: "lines+markers",
+      line: { color: colors.primary, width: 1.5 },
+      marker: { size: 5 },
+      hovertemplate: "<b>%{x}</b><br>TTR: %{y:.3f}<extra></extra>",
+    },
+    {
+      x: years,
+      y: movingAvgData,
+      name: "5-Year Average",
+      type: "scatter",
+      mode: "lines",
+      line: { color: colors.accent, width: 2.5 },
+      hovertemplate: "<b>%{x}</b><br>5-yr avg: %{y:.3f}<extra></extra>",
+    },
+  ];
+
+  const layout = {
+    xaxis: {
+      title: { text: "Year", font: { size: 12 } },
+      gridcolor: colors.grid,
+      dtick: 10,
+    },
+    yaxis: {
+      title: {
+        text: "Type-Token Ratio (unique/total words)",
+        font: { size: 12 },
+      },
+      gridcolor: colors.grid,
+      range: [0.1, 0.35],
+    },
+    height: 400,
+    showlegend: true,
+    legend: { orientation: "h", y: -0.15 },
+    paper_bgcolor: "transparent",
+    plot_bgcolor: "transparent",
+    margin: { t: 20, b: 60, l: 60, r: 20 },
+    annotations: [
+      {
+        x: "1976",
+        y: 0.291,
+        text: "Peak: 1976",
+        showarrow: true,
+        arrowhead: 2,
+        arrowsize: 1,
+        arrowwidth: 1,
+        ax: 30,
+        ay: -30,
+        font: { size: 10, color: colors.primary },
+      },
+    ],
+  };
+
+  Plotly.newPlot("vocabularyChart", traces, layout, {
+    responsive: true,
+    displayModeBar: false,
+  });
+}
+
+// ===================================
+// CHART 6: TEMPORAL ORIENTATION
+// ===================================
+function renderTemporalChart() {
+  const years = Object.keys(languageData.by_year).sort();
+
+  // Check if temporal data exists
+  if (!languageData.by_year[years[0]].temporal_ratio) {
+    document.getElementById("temporalChart").innerHTML =
+      '<p style="color: #718096; text-align: center; padding: 2rem;">Temporal orientation data not available</p>';
+    return;
+  }
+
+  const temporalData = years.map((y) => languageData.by_year[y].temporal_ratio);
+  const movingAvgData = movingAverage(temporalData, 5);
+
+  const traces = [
+    {
+      x: years,
+      y: temporalData,
+      name: "Forward-Looking Ratio",
+      type: "scatter",
+      mode: "lines+markers",
+      line: { color: colors.success, width: 1.5 },
+      marker: { size: 5 },
+      hovertemplate:
+        "<b>%{x}</b><br>Forward ratio: %{y:.2f}<br>(1=all forward, 0=all backward)<extra></extra>",
+    },
+    {
+      x: years,
+      y: movingAvgData,
+      name: "5-Year Average",
+      type: "scatter",
+      mode: "lines",
+      line: { color: colors.accent, width: 2.5 },
+      hovertemplate: "<b>%{x}</b><br>5-yr avg: %{y:.2f}<extra></extra>",
+    },
+  ];
+
+  // Add reference line at 0.5 (balanced)
+  const shapes = [
+    {
+      type: "line",
+      x0: years[0],
+      x1: years[years.length - 1],
+      y0: 0.5,
+      y1: 0.5,
+      line: { color: colors.neutral, width: 1, dash: "dash" },
+    },
+  ];
+
+  const layout = {
+    xaxis: {
+      title: { text: "Year", font: { size: 12 } },
+      gridcolor: colors.grid,
+      dtick: 10,
+    },
+    yaxis: {
+      title: { text: "Forward-Looking Ratio", font: { size: 12 } },
+      gridcolor: colors.grid,
+      range: [0.3, 1.0],
+    },
+    shapes: shapes,
+    height: 400,
+    showlegend: true,
+    legend: { orientation: "h", y: -0.15 },
+    paper_bgcolor: "transparent",
+    plot_bgcolor: "transparent",
+    margin: { t: 20, b: 60, l: 60, r: 20 },
+    annotations: [
+      {
+        x: years[years.length - 1],
+        y: 0.5,
+        text: "Balanced",
+        showarrow: false,
+        xanchor: "right",
+        font: { size: 10, color: colors.neutral },
+      },
+    ],
+  };
+
+  Plotly.newPlot("temporalChart", traces, layout, {
+    responsive: true,
+    displayModeBar: false,
+  });
+}
+
+// ===================================
+// CHART 7: CERTAINTY INDEX
+// ===================================
+function renderCertaintyChart() {
+  const years = Object.keys(languageData.by_year).sort();
+
+  // Check if certainty data exists
+  if (!languageData.by_year[years[0]].certainty_ratio) {
+    document.getElementById("certaintyChart").innerHTML =
+      '<p style="color: #718096; text-align: center; padding: 2rem;">Certainty data not available</p>';
+    return;
+  }
+
+  const certaintyData = years.map(
+    (y) => languageData.by_year[y].certainty_ratio,
+  );
+  const movingAvgData = movingAverage(certaintyData, 5);
+
+  const traces = [
+    {
+      x: years,
+      y: certaintyData,
+      name: "Certainty Ratio",
+      type: "scatter",
+      mode: "lines+markers",
+      line: { color: colors.warning, width: 1.5 },
+      marker: { size: 5 },
+      hovertemplate:
+        "<b>%{x}</b><br>Certainty: %{y:.2f}<br>(1=confident, 0=hedging)<extra></extra>",
+    },
+    {
+      x: years,
+      y: movingAvgData,
+      name: "5-Year Average",
+      type: "scatter",
+      mode: "lines",
+      line: { color: colors.accent, width: 2.5 },
+      hovertemplate: "<b>%{x}</b><br>5-yr avg: %{y:.2f}<extra></extra>",
+    },
+  ];
+
+  // Add reference line at 0.5 (balanced)
+  const shapes = [
+    {
+      type: "line",
+      x0: years[0],
+      x1: years[years.length - 1],
+      y0: 0.5,
+      y1: 0.5,
+      line: { color: colors.neutral, width: 1, dash: "dash" },
+    },
+  ];
+
+  const layout = {
+    xaxis: {
+      title: { text: "Year", font: { size: 12 } },
+      gridcolor: colors.grid,
+      dtick: 10,
+    },
+    yaxis: {
+      title: { text: "Certainty Ratio", font: { size: 12 } },
+      gridcolor: colors.grid,
+      range: [0.5, 1.0],
+    },
+    shapes: shapes,
+    height: 400,
+    showlegend: true,
+    legend: { orientation: "h", y: -0.15 },
+    paper_bgcolor: "transparent",
+    plot_bgcolor: "transparent",
+    margin: { t: 20, b: 60, l: 60, r: 20 },
+    annotations: [
+      {
+        x: years[years.length - 1],
+        y: 0.5,
+        text: "Balanced",
+        showarrow: false,
+        xanchor: "right",
+        font: { size: 10, color: colors.neutral },
+      },
+    ],
+  };
+
+  Plotly.newPlot("certaintyChart", traces, layout, {
+    responsive: true,
+    displayModeBar: false,
+  });
+}
+
+// ===================================
+// CHART 8: PASSIVE VOICE RATIO
+// ===================================
+function renderPassiveChart() {
+  const years = Object.keys(languageData.by_year).sort();
+
+  // Check if passive data exists
+  if (!languageData.by_year[years[0]].passive_ratio) {
+    document.getElementById("passiveChart").innerHTML =
+      '<p style="color: #718096; text-align: center; padding: 2rem;">Passive voice data not available</p>';
+    return;
+  }
+
+  const passiveData = years.map((y) => languageData.by_year[y].passive_ratio);
+  const movingAvgData = movingAverage(passiveData, 5);
+
+  const traces = [
+    {
+      x: years,
+      y: passiveData.map((v) => v * 100), // Convert to percentage
+      name: "Passive Voice %",
+      type: "scatter",
+      mode: "lines+markers",
+      line: { color: colors.neutral, width: 1.5 },
+      marker: { size: 5 },
+      hovertemplate: "<b>%{x}</b><br>Passive: %{y:.1f}%<extra></extra>",
+    },
+    {
+      x: years,
+      y: movingAvgData.map((v) => v * 100),
+      name: "5-Year Average",
+      type: "scatter",
+      mode: "lines",
+      line: { color: colors.accent, width: 2.5 },
+      hovertemplate: "<b>%{x}</b><br>5-yr avg: %{y:.1f}%<extra></extra>",
+    },
+  ];
+
+  const layout = {
+    xaxis: {
+      title: { text: "Year", font: { size: 12 } },
+      gridcolor: colors.grid,
+      dtick: 10,
+    },
+    yaxis: {
+      title: { text: "Passive Voice Usage (%)", font: { size: 12 } },
+      gridcolor: colors.grid,
+      range: [0, 45],
+    },
+    height: 400,
+    showlegend: true,
+    legend: { orientation: "h", y: -0.15 },
+    paper_bgcolor: "transparent",
+    plot_bgcolor: "transparent",
+    margin: { t: 20, b: 60, l: 60, r: 20 },
+    annotations: [
+      {
+        x: "1972",
+        y: 37,
+        text: "Peak: 1972 (37%)",
+        showarrow: true,
+        arrowhead: 2,
+        arrowsize: 1,
+        arrowwidth: 1,
+        ax: 30,
+        ay: -30,
+        font: { size: 10, color: colors.primary },
+      },
+      {
+        x: "2020",
+        y: 4,
+        text: "Low: 2020 (4%)",
+        showarrow: true,
+        arrowhead: 2,
+        arrowsize: 1,
+        arrowwidth: 1,
+        ax: -30,
+        ay: -30,
+        font: { size: 10, color: colors.success },
+      },
+    ],
+  };
+
+  Plotly.newPlot("passiveChart", traces, layout, {
+    responsive: true,
+    displayModeBar: false,
+  });
 }
